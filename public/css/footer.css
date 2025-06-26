@@ -1,0 +1,112 @@
+.healsync-footer {
+  background-color: #667eea;
+  padding: 40px 60px 20px;
+  font-family: Arial, sans-serif;
+  color: #ffff;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  min-width: 180px;
+  margin-bottom: 20px;
+}
+
+.footer-section h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.logo-section h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.app-store {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.app-store img {
+  width: 140px;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+/* Footer Bottom Terpisah 3 Kolom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  margin: 6px 0;
+}
+
+.footer-left {
+  text-align: left;
+  font-size: 13px;
+  color: #ffff;
+}
+
+.footer-center {
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  color: #ffff;
+}
+
+.footer-icons img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+}
