@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Login | Healsync</title>
+    <title>Register | Healsync</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -38,7 +38,7 @@
                                 <a href="{{ route('login') }}" class="text-decoration-none" style="color: #667eea; font-weight: 500;">Masuk, yuk!</a>
                             </p>
                         </div>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
                             
                             <!-- Name Input -->
@@ -51,7 +51,7 @@
                                     value="{{ old('name') }}" 
                                     placeholder="Masukan Nama"
                                     required 
-                                    autocomplete="name" 
+                                    autocomplete="nope" 
                                     autofocus
                                     style="background-color: #f8f9fb; border: 2px solid #e1e5e9; padding: .7rem 1.5rem; border-radius: 12px; font-size: 1rem;">
                                 @error('name')
@@ -71,7 +71,7 @@
                                     value="{{ old('email') }}" 
                                     placeholder="Masukan Email"
                                     required 
-                                    autocomplete="email" 
+                                    autocomplete="nope" 
                                     autofocus
                                     style="background-color: #f8f9fb; border: 2px solid #e1e5e9; padding: .7rem 1.5rem; border-radius: 12px; font-size: 1rem;">
                                 @error('email')
@@ -90,7 +90,7 @@
                                     name="password" 
                                     placeholder="Password"
                                     required 
-                                    autocomplete="current-password"
+                                    autocomplete="nope"
                                     style="background-color: #f8f9fb; border: 2px solid #e1e5e9; padding: .7rem 1.5rem; border-radius: 12px; font-size: 1rem;">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -99,25 +99,25 @@
                                 @enderror
                             </div>
 
-                            <!-- Password Input -->
+                            <!-- Confirm Password -->
                             <div class="mb-4">
-                                <label for="password" class="form-label text-dark fw-medium mb-2" style="font-size: 1rem;">Konfirmasi Password</label>
+                                <label for="password_confirmation" class="form-label text-dark fw-medium mb-2" style="font-size: 1rem;">Konfirmasi Password</label>
                                 <input type="password" 
-                                    class="form-control @error('password') is-invalid @enderror" 
-                                    id="password" 
-                                    name="password" 
-                                    placeholder="Password"
+                                    class="form-control @error('password_confirmation') is-invalid @enderror" 
+                                    id="password_confirmation" 
+                                    name="password_confirmation" 
+                                    placeholder="Konfirmasi password"
                                     required 
-                                    autocomplete="current-password"
-                                    style="background-color: #f8f9fb; border: 2px solid #e1e5e9; padding: .5rem 1.5rem; border-radius: 12px; font-size: 1rem;">
-                                @error('password')
+                                    autocomplete="nope"
+                                    style="background-color: #f8f9fb; border: 2px solid #e1e5e9; padding: .7rem 1.5rem; border-radius: 12px; font-size: 1rem;">
+                                @error('password_confirmation')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
 
-                            <!-- Login Button -->
+                            <!-- Login Button -->   
                             <button type="submit" class="btn w-100 text-white fw-medium shadow-sm" 
                                     style="background: linear-gradient(135deg, #ff6b6b, #ee5a52); border: none; padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem;">
                                 Daftar
