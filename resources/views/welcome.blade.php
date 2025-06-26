@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>HALO JAWA</h1>
+<h1>HOYONG UIH KA RAJADESA</h1>
 @endsection
