@@ -1,51 +1,49 @@
 <footer class="healsync-footer">
-  <div class="footer-top">
+    <div class="footer-top">
 
     <!-- Logo & App Store -->
 
     <div class="footer-section logo-section">
-      <h2>Healsync</h2>
-      <div class="app-store">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
-      </div>
+        <a href="/">
+            <img src="{{ asset('img/logo-white.png') }}" alt="healsync" width="280px">
+        </a>
     </div>
 
 
     <!-- Layanan -->
 
     <div class="footer-section">
-      <h4>Layanan</h4>
-      <p>Video/voice call</p>
-      <p>Janji Tatap Muka</p>
+        <h3>Layanan</h3>
+        <p><a href="">Video/voice call</a></p>
+        <p><a href="">Janji Tatap Muka</a></p>
     </div>
-
+    
     <!-- Tentang Kami -->
-
+    
     <div class="footer-section">
-      <h4>Tentang Kami</h4>
-      <p>Tentang Healsync</p>
-      <p>Hubungi Kami</p>
-      <p>FAQ</p>
+        <h3>Tentang Kami</h3>
+        <p><a href="">Tentang Healsync</a></p>
+        <p><a href="">Hubungi Kami</a></p>
+        <p><a href="">FAQ</a></p>
     </div>
-
+    
     <!-- Lainnya -->
-
+    
     <div class="footer-section">
-      <h4>Lainnya</h4>
-      <p>Panduan Konseling</p>
-      <p>Peraturan Konseling</p>
-      <p>Aplikasi Healsync</p>
-      <p>Indonesia Sehat Mental</p>
+        <h3>Lainnya</h3>
+        <p><a href="">Panduan Konseling</a></p>
+        <p><a href="">Peraturan Konseling</a></p>
+        <p><a href="">Aplikasi Healsync</a></p>
+        <p><a href="">Indonesia Sehat Mental</a></p>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="footer-text">
-      <span>Kebijakan Privasi - Syarat & Ketentuan</span>
+        <span><a href="">Kebijakan Privasi - Syarat & Ketentuan </a></span>
     </div>
     <div class="footer-center">
-      <span>© UAS 2025</span>
+      <span>&copy; {{ date('Y') }} Healsync. Made with love by  <a href="https://github.com/mischly/healsync" style="text-decoration: none; color: #72d7e6">Kelompok 1</a>.</span>
     </div>
     <div class="footer-icons">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
