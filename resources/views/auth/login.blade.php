@@ -42,7 +42,7 @@
                                     id="email" 
                                     name="email" 
                                     value="{{ old('email') }}" 
-                                    placeholder="aad@gmail.com"
+                                    placeholder="Masukan Email"
                                     required 
                                     autocomplete="email" 
                                     autofocus
@@ -61,7 +61,7 @@
                                     class="form-control @error('password') is-invalid @enderror" 
                                     id="password" 
                                     name="password" 
-                                    placeholder="••••••••"
+                                    placeholder="Masukan Password"
                                     required 
                                     autocomplete="current-password"
                                     style="background-color: #f8f9fb; border: 2px solid #e1e5e9; padding: 1rem 1.25rem; border-radius: 12px; font-size: 1rem;">
