@@ -46,12 +46,10 @@
       <span>&copy; {{ date('Y') }} Healsync. Made with love by  <a href="https://github.com/mischly/healsync" style="text-decoration: none; color: #72d7e6">Kelompok 1</a>.</span>
     </div>
     <div class="footer-icons">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="TikTok">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/spotify.png" alt="Spotify">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
     </div>
   </div>
 </footer>
