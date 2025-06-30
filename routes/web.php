@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('page.layanan.index');
+    return view('page.index');
 });
 
 FacadesAuth::routes();
