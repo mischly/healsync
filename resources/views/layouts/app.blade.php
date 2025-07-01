@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -46,7 +47,7 @@
                             <a href="" class="nav-link">LAYANAN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">TENTANG KAMI</a>
+                            <a href="{{ ('page.about.index') }}" class="nav-link">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">KONTAK</a>
