@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('page.index');
+    return view('page.testimoni.index');
 });
 
 FacadesAuth::routes();

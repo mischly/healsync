@@ -49,7 +49,7 @@
                             <a href="" class="nav-link">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">KONTAK</a>
+                            <a href="" class="nav-link">TESTIMONI</a>
                         </li>
                     </ul>
 
