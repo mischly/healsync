@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5">
+<div class="about-container">
     <h1 class="text-center fw-bold mb-5">TENTANG KAMI</h1>
 
     <div class="about-section">

@@ -51,7 +51,7 @@
                             <a href="" class="nav-link">LAYANAN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ ('page.about.index') }}" class="nav-link">TENTANG KAMI</a>
+                            <a href="" class="nav-link">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">KONTAK</a>
