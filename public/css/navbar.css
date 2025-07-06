@@ -1,25 +1,50 @@
-/* === MENU UTAMA NAVBAR (TENGAH) === */
+/* NAVBAR UTAMA */
+nav.navbar {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    background-color: white !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    min-height: 60px !important;
+}
+
+/* PENTING: Hilangin padding dari container dalam navbar */
+nav.navbar .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 auto;
+}
+
+/* UL NAVBAR UMUM */
+ul.navbar-nav {
+    margin: 0;
+    padding: 0;
+}
+
+/* UL NAVBAR TENGAH */
 ul.navbar-nav.mx-auto .nav-link {
     font-weight: 500;
     color: #333333;
     margin-right: 15px;
     position: relative;
     transition: color 0.3s ease;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.2;
 }
 
-/* Garis bawah animasi */
 ul.navbar-nav.mx-auto .nav-link::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -2px;
     height: 2px;
     width: 0%;
     background-color: #076d7d;
     transition: width 0.3s ease;
+    border-radius: 1px;
 }
 
-/* Hover dan aktif */
 ul.navbar-nav.mx-auto .nav-link:hover,
 ul.navbar-nav.mx-auto .nav-link.active {
     color: #076d7d;
@@ -32,12 +57,15 @@ ul.navbar-nav.mx-auto .nav-link.active::after {
     width: 100%;
 }
 
-/* === LOGIN & REGISTER === */
+/* NAVBAR LOGIN & REGISTER */
 .navbar-nav .nav-link[href*="login"],
 .navbar-nav .nav-link[href*="register"] {
     color: #076d7d;
     font-weight: 600;
     transition: color 0.3s ease;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px;
 }
 
 .navbar-nav .nav-link[href*="login"]:hover,

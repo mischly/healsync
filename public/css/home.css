@@ -1,0 +1,113 @@
+/* ===== HERO / JUMBOTRON ======================================== */
+.jumbotron-hero{
+    background: linear-gradient(90deg,rgba(209, 255, 254, 1) 0%, rgba(88, 233, 255, 1) 70%, rgba(0, 221, 255, 1) 100%);
+}
+.hero-inner{
+    height:100dvh;           /* full‑viewport dengan dvh (aman iOS) */
+    display:flex;
+    align-items:center;
+}
+
+/* ===== TEKS ===================================================== */
+.hero-title{
+    font-size:2rem;
+    font-weight:700;
+    line-height:1.3;
+}
+.hero-subtitle{
+    font-size:1.15rem;
+    margin-top:1rem;
+}
+
+/* ===== WRAPPER KARTU =========================================== */
+/* pakai flex supaya lebar kartu tidak dipengaruhi grid 6‑kolom */
+.cards-group{
+    display:flex;
+    gap:1.5rem;          /* jarak antar‑kartu */
+    flex-wrap:wrap;
+    margin-top:1.75rem;
+}
+
+/* ===== KARTU KONSELING ========================================= */
+.card-konseling{
+    width:230px;         /* lebar tetap → tidak kurus lagi */
+    background-color: rgba(209, 255, 254, 1)    ;
+    border:1px solid #c8ddff;
+    border-radius:18px;
+    padding:24px 20px;
+
+    display:flex;
+    flex-direction:column;
+    transition:transform .3s,box-shadow .3s;
+}
+.card-konseling:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+.card-konseling h5{
+    font-size:1rem;
+    font-weight:600;
+}
+
+/* ===== TOMBOL PILIH ============================================ */
+.btn-pilih{
+    display:inline-flex;
+    align-items:center;
+    font-weight:500;
+    color:#000;
+    text-decoration:none;
+}
+.btn-pilih:hover{ text-decoration:underline; }
+
+/* ===== GAMBAR DALAM KARTU ====================================== */
+.konseling-img {
+    width:100%;
+    object-fit:contain;
+    margin-top:auto;   
+    font-size: 1rem;
+}
+
+.section-l {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+/* ===== RESPONSIVE ============================================= */
+@media(min-width:992px){
+    .hero-title{font-size:2.5rem;}
+    .hero-subtitle{font-size:1.25rem;}
+}
+
+.cara-daftar-section {
+    background: rgba(209, 255, 254, 1);
+    transition: background 0.5s ease-in-out;
+}
+
+.img-placeholder {
+    width: 220px;
+    height: 220px;
+    background-color: #f0f8ff;
+    border: 2px dashed #96c1e6;
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.img-placeholder:hover {
+    transform: scale(1.05);
+}
+
+.cara-daftar-section h2 {
+    font-size: 2.2rem;
+}
+
+@media (max-width: 768px) {
+    .img-placeholder {
+        width: 180px;
+        height: 180px;
+    }
+
+    .cara-daftar-section h2 {
+        font-size: 1.6rem;
+    }
+}
