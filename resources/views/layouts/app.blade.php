@@ -45,13 +45,13 @@
                             <a href="" class="nav-link {{ request()->is('/') ? 'active' : '' }}">BERANDA</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">ARTIKEL</a>
+                            <a href="{{ route('artikel.index') }}" class="nav-link">ARTIKEL</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">LAYANAN</a>
+                            <a href="{{ route('layanan.index') }}" class="nav-link">LAYANAN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">TENTANG KAMI</a>
+                            <a href="{{ route('about.index') }}" class="nav-link">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">KONTAK</a>
