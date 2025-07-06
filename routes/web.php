@@ -2,10 +2,11 @@
 
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('page.index');
+    return view('page.ARTIKEL.INDEX');
 });
 
 FacadesAuth::routes();
