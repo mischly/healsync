@@ -6,7 +6,7 @@ use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('page.ARTIKEL.INDEX');
+    return view('page.index');
 });
 
 FacadesAuth::routes();

@@ -1,4 +1,3 @@
-/* === MENU UTAMA NAVBAR (TENGAH) === */
 ul.navbar-nav.mx-auto .nav-link {
     font-weight: 500;
     color: #333333;
@@ -7,7 +6,6 @@ ul.navbar-nav.mx-auto .nav-link {
     transition: color 0.3s ease;
 }
 
-/* Garis bawah animasi */
 ul.navbar-nav.mx-auto .nav-link::after {
     content: '';
     position: absolute;
@@ -19,7 +17,6 @@ ul.navbar-nav.mx-auto .nav-link::after {
     transition: width 0.3s ease;
 }
 
-/* Hover dan aktif */
 ul.navbar-nav.mx-auto .nav-link:hover,
 ul.navbar-nav.mx-auto .nav-link.active {
     color: #076d7d;
@@ -32,7 +29,7 @@ ul.navbar-nav.mx-auto .nav-link.active::after {
     width: 100%;
 }
 
-/* === LOGIN & REGISTER === */
+
 .navbar-nav .nav-link[href*="login"],
 .navbar-nav .nav-link[href*="register"] {
     color: #076d7d;
