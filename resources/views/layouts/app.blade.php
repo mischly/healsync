@@ -17,22 +17,20 @@
     <!-- CSS --->
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/artikel.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    @stack('styles')
 </head>
-<body>
+<body>  
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo2.png') }}" alt="" width="135px">
+                    <img src="{{ asset('img/logo2.png') }}" alt="Logo">
                 </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,16 +42,16 @@
                             <a href="" class="nav-link {{ request()->is('/') ? 'active' : '' }}">BERANDA</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">ARTIKEL</a>
+                            <a href="{{ route('page.artikel') }}" class="nav-link">ARTIKEL</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">LAYANAN</a>
+                            <a href="{{ route('page.layanan') }}" class="nav-link">LAYANAN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">TENTANG KAMI</a>
+                            <a href="{{ route('page.about') }}" class="nav-link">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">KONTAK</a>
+                            <a href="" class="nav-link">REVIEW</a>
                         </li>
                     </ul>
 

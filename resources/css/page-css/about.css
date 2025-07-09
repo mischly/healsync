@@ -12,7 +12,6 @@ body {
     padding: 60px 30px;
 }
 
-/* Heading utama */
 h1 {
     font-size: 36px;
     font-weight: bold;
@@ -20,7 +19,6 @@ h1 {
     margin-bottom: 60px;
 }
 
-/* Bagian Atas */
 .about-section {
     display: flex;
     flex-wrap: wrap;
@@ -90,7 +88,6 @@ h1 {
     margin: 0;
 }
 
-/* Visi & Misi */
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -133,7 +130,6 @@ ol {
     font-size: 20px;
 }
 
-/* Gambar Pohon */
 .tree-image {
     margin-top: 30px;
     text-align: left;
@@ -207,8 +203,6 @@ ol {
     color: #333;
 }
 
-
-/* Responsive */
 @media (max-width: 768px) {
     .about-section {
         flex-direction: column;

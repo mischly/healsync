@@ -1,26 +1,24 @@
-/* NAVBAR UTAMA */
 nav.navbar {
     padding-top: 6px !important;
     padding-bottom: 6px !important;
     background-color: white !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
     min-height: 60px !important;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-/* PENTING: Hilangin padding dari container dalam navbar */
 nav.navbar .container {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     margin: 0 auto;
 }
 
-/* UL NAVBAR UMUM */
 ul.navbar-nav {
     margin: 0;
     padding: 0;
 }
 
-/* UL NAVBAR TENGAH */
 ul.navbar-nav.mx-auto .nav-link {
     font-weight: 500;
     color: #333333;
@@ -57,7 +55,6 @@ ul.navbar-nav.mx-auto .nav-link.active::after {
     width: 100%;
 }
 
-/* NAVBAR LOGIN & REGISTER */
 .navbar-nav .nav-link[href*="login"],
 .navbar-nav .nav-link[href*="register"] {
     color: #076d7d;
@@ -72,4 +69,11 @@ ul.navbar-nav.mx-auto .nav-link.active::after {
 .navbar-nav .nav-link[href*="register"]:hover {
     color: #054b59;
     text-decoration: none;
+}
+
+.navbar-brand img {
+    width: 135px;
+    height: auto;
+    max-width: 100%;
+    display: block;
 }

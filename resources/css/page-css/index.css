@@ -1,14 +1,13 @@
-/* ===== HERO / JUMBOTRON ======================================== */
 .jumbotron-hero{
     background: linear-gradient(90deg,rgba(209, 255, 254, 1) 0%, rgba(88, 233, 255, 1) 70%, rgba(0, 221, 255, 1) 100%);
 }
+
 .hero-inner{
-    height:100dvh;           /* full‑viewport dengan dvh (aman iOS) */
+    height:100dvh;       
     display:flex;
     align-items:center;
 }
 
-/* ===== TEKS ===================================================== */
 .hero-title{
     font-size:2rem;
     font-weight:700;
@@ -19,18 +18,15 @@
     margin-top:1rem;
 }
 
-/* ===== WRAPPER KARTU =========================================== */
-/* pakai flex supaya lebar kartu tidak dipengaruhi grid 6‑kolom */
 .cards-group{
     display:flex;
-    gap:1.5rem;          /* jarak antar‑kartu */
+    gap:1.5rem;          
     flex-wrap:wrap;
     margin-top:1.75rem;
 }
 
-/* ===== KARTU KONSELING ========================================= */
 .card-konseling{
-    width:230px;         /* lebar tetap → tidak kurus lagi */
+    width:230px;    
     background-color: rgba(209, 255, 254, 1)    ;
     border:1px solid #c8ddff;
     border-radius:18px;
@@ -49,7 +45,6 @@
     font-weight:600;
 }
 
-/* ===== TOMBOL PILIH ============================================ */
 .btn-pilih{
     display:inline-flex;
     align-items:center;
@@ -59,7 +54,6 @@
 }
 .btn-pilih:hover{ text-decoration:underline; }
 
-/* ===== GAMBAR DALAM KARTU ====================================== */
 .konseling-img {
     width:100%;
     object-fit:contain;
@@ -72,7 +66,6 @@
     padding-bottom: 8rem;
 }
 
-/* ===== RESPONSIVE ============================================= */
 @media(min-width:992px){
     .hero-title{font-size:2.5rem;}
     .hero-subtitle{font-size:1.25rem;}
@@ -90,7 +83,16 @@
     border: 2px dashed #96c1e6;
     border-radius: 50%;
     margin: 0 auto;
-    transition: transform 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .img-placeholder:hover {

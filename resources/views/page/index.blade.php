@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
+@push('styles')
+    @vite(['resources/css/page-css/index.css'])
+@endpush
+
 @section('content')
-{{-- ================== HERO SECTION =============================== --}}
 <section class="jumbotron-hero home">
     <div class="container hero-inner">
         <div class="row align-items-center w-100">
-            {{-- -------- KIRI (teks + kartu) -------- --}}
             <div class="col-lg-6">
                 <h2 class="hero-title">
                     "Pulihkan Kesehatan Mentalmu<br>Bersama Healsync"
@@ -15,7 +17,6 @@
                 </p>
 
                 <div class="cards-group">
-                    {{-- ===== KONSELING ONLINE ===== --}}
                     <div class="card-konseling">
                         <h5>Konseling untuk saya</h5>
                         <p class="mb-2">Konseling&nbsp;Online</p>
@@ -24,7 +25,6 @@
                              alt="Konseling Online" class="konseling-img">
                     </div>
 
-                    {{-- ===== KONSELING OFFLINE ===== --}}
                     <div class="card-konseling">
                         <h5>Konseling untuk saya</h5>
                         <p class="mb-2">Konseling&nbsp;Offline</p>
@@ -35,7 +35,6 @@
                 </div>
             </div>
 
-            {{-- -------- KANAN (ilustrasi kosong) -------- --}}
             <div class="col-lg-6 d-none d-lg-block">
                 <img src="{{ asset('img/vektor6.png') }}" alt="vector-6" width="700px">
             </div>
@@ -43,7 +42,6 @@
     </div>
 </section>
 
-{{-- ================== SECTION: LAYANAN PSIKOLOGI ==================== --}}
 <section class="bg-white section-l">
     <div class="container">
         <div class="text-center mb-5">
@@ -51,7 +49,6 @@
         </div>
 
         <div class="row gy-4 text-center text-md-start">
-            {{-- KONSELING --}}
             <div class="col-md-4">
                 <h3 class="fw-semibold text-dark mb-2">Konseling Online</h3>
                 <p class="text-muted fs-5">
@@ -60,7 +57,6 @@
                 </p>
             </div>
 
-            {{-- ASESMEN --}}
             <div class="col-md-4">
                 <h3 class="fw-semibold text-dark mb-2">Asesmen Psikologis</h3>
                 <p class="text-muted fs-5">
@@ -69,7 +65,6 @@
                 </p>
             </div>
 
-            {{-- PSIKOTERAPI --}}
             <div class="col-md-4">
                 <h3 class="fw-semibold text-dark mb-2">Psikoterapi</h3>
                 <p class="text-muted fs-5">

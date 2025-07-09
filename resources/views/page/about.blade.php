@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    @vite(['resources/css/page-css/about.css'])
+@endpush
+
 @section('content')
 <div class="about-container">
     <h1 class="text-center fw-bold mb-5">TENTANG KAMI</h1>
