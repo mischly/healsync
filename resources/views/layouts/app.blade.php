@@ -17,7 +17,6 @@
     <!-- CSS --->
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/artikel.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -45,16 +44,16 @@
                             <a href="" class="nav-link {{ request()->is('/') ? 'active' : '' }}">BERANDA</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('artikel.index') }}" class="nav-link">ARTIKEL</a>
+                            <a href="" class="nav-link">ARTIKEL</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('layanan.index') }}" class="nav-link">LAYANAN</a>
+                            <a href="" class="nav-link">LAYANAN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('about.index') }}" class="nav-link">TENTANG KAMI</a>
+                            <a href="" class="nav-link">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('testimoni.index') }}" class="nav-link">REVIEW</a>
+                            <a href="" class="nav-link">KONTAK</a>
                         </li>
                     </ul>
 
