@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PelayananController;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use App\Http\Controllers\ReviewController;
@@ -14,6 +15,8 @@ FacadesAuth::routes();
 Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
+
+Route::resource('pelayanan', PelayananController::class);
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

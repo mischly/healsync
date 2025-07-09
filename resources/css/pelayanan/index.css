@@ -1,0 +1,144 @@
+/* Warna dasar dan font */
+body {
+  background-color: #00B2FF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Kontainer halaman */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px 80px;
+}
+
+/* Judul utama */
+.judul {
+  text-align: center;
+  color: white;
+  margin-bottom: 80px;
+}
+
+.judul h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.judul p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Grid utama: 4 card per baris, dengan jarak antar baris dan kolom */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px 30px; /* jarak baris 60px, kolom 30px */
+  justify-content: center;
+}
+
+/* Gaya kartu */
+.card {
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  padding: 70px 20px 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  overflow: visible;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Foto mengambang */
+.img-wrapper {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00B2FF;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Konten isi kartu */
+.card-content {
+    margin-top: 20px; 
+}
+
+.card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-top: 0;
+}
+
+.card p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* Tombol aksi */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-green {
+  background-color: #74c044;
+}
+
+.btn-green:hover {
+  background-color: #5da632;
+}
+
+.btn-yellow {
+  background-color: #f7c41f;
+}
+
+.btn-yellow:hover {
+  background-color: #e6b40d;
+}
+
+/* Responsif */
+@media screen and (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
