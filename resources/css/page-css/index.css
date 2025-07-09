@@ -1,5 +1,5 @@
 .jumbotron-hero{
-    background: linear-gradient(90deg,rgba(209, 255, 254, 1) 0%, rgba(88, 233, 255, 1) 70%, rgba(0, 221, 255, 1) 100%);
+    background: linear-gradient(45deg, #8ec5fc 0%, #8dd3ff 25%, #a1d8ff 50%, #c1d2ff 75%, #e0c3ff 100%);
 }
 
 .hero-inner{
@@ -27,7 +27,7 @@
 
 .card-konseling{
     width:230px;    
-    background-color: rgba(209, 255, 254, 1)    ;
+    background-color: #fff;
     border:1px solid #c8ddff;
     border-radius:18px;
     padding:24px 20px;
@@ -72,7 +72,7 @@
 }
 
 .cara-daftar-section {
-    background: rgba(209, 255, 254, 1);
+    background: linear-gradient(45deg, #8ec5fc 0%, #8dd3ff 25%, #a1d8ff 50%, #c1d2ff 75%, #e0c3ff 100%);
     transition: background 0.5s ease-in-out;
 }
 
