@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Layanan Psikologi Online & Offline')
+@push('styles')
+    @vite(['resources/css/page-css/artikel.css'])
+@endpush
+
 
 @section('content')
 

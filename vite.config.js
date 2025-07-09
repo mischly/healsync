@@ -9,6 +9,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/page-css/index.css',
                 'resources/css/page-css/layanan.css',
+                'resources/css/page-css/about.css',
+                'resources/css/page-css/artikel.css',
             ],
             refresh: true,
         }),
