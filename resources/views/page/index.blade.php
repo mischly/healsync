@@ -17,18 +17,14 @@
                         <h5>Konseling untuk saya</h5>
                         <p class="mb-2">Konseling&nbsp;Online</p>
 
-                        <a href="{{ route('pelayanan.index') }}" class="btn-pilih">Pilih&nbsp;→</a>
-                        <img src="{{ asset('img/vektor7.png') }}"
-                             alt="Konseling Online" class="konseling-img">
-
-                        {{ -- <a href="#" class="btn-pilih">Pilih&nbsp;→</a>
-                        <img src="{{ asset('img/vektor7.png') }}" alt="Konseling Online" class="konseling-img"> --}}
+                        <a href="{{ auth()->check() ? route('pelayanan.index') : 'javascript:void(0)' }}" class="btn-pilih pelayanan">Pilih&nbsp;→</a>
+                        <img src="{{ asset('img/vektor7.png') }}" alt="Konseling Online" class="konseling-img">
                     </div>
 
                     <div class="card-konseling">
                         <h5>Konseling untuk saya</h5>
                         <p class="mb-2">Konseling&nbsp;Offline</p>
-                        <a href="#" class="btn-pilih">Pilih&nbsp;→</a>
+                        <a href="{{ auth()->check() ? route('pelayanan.index') : 'javascript:void(0)' }}" class="btn-pilih pelayanan">Pilih&nbsp;→</a>
                         <img src="{{ asset('img/vektor8.png') }}" alt="Konseling Offline" class="konseling-img">
                     </div>
                 </div>
@@ -111,3 +107,44 @@
     </div>
 </section>
 @endsection
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+        const buttons = document.querySelectorAll('.pelayanan');
+
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                if (!isLoggedIn) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: 'Login Diperlukan',
+                        html: 'Untuk memesan konseling, silakan login terlebih dahulu.',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: '<i class="bi bi-box-arrow-in-right me-1"></i> Login Sekarang',
+                        cancelButtonText: 'Nanti Saja',
+                        confirmButtonColor: '#1e3c72',
+                        cancelButtonColor: '#6c757d',
+                        background: '#ffffff',
+                        customClass: {
+                            popup: 'rounded-4 px-4 py-3',
+                            title: 'fw-bold fs-4',
+                            htmlContainer: 'text-muted fs-6',
+                            confirmButton: 'btn btn-primary rounded-pill px-4 py-2',
+                            cancelButton: 'btn btn-secondary rounded-pill px-4 py-2 ms-2'
+                        },
+                        buttonsStyling: false
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "{{ route('login') }}";
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+@endpush

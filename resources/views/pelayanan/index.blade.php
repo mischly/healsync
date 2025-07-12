@@ -7,8 +7,8 @@
 @section('content')
 <div class="container">
     <div class="judul">
-        <h2>Mau Mulai Konsultasi?</h2>
-        <p>Yuk Kenali Psikolog Kami!</p>
+        <h2 class="fw-bold">Mau Mulai Konsultasi?</h2>
+        <p class="fw-bold">Yuk Kenali Psikolog Kami!</p>
     </div>
 
     <div class="card-grid">

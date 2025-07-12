@@ -48,7 +48,7 @@
                             <a href="{{ route('page.layanan') }}" class="nav-link {{ request()->is('layanan') ? 'active' : '' }}">LAYANAN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('page.about') }}" class="nav-link c">TENTANG KAMI</a>
+                            <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('testimoni.index') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">REVIEW</a>
@@ -100,6 +100,8 @@
         @if (!View::hasSection('no-footer'))
             @include('partials.footer')
         @endif
+
+        @stack('scripts')
     </div>
 </body>
 </html>

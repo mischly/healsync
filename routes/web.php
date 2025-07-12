@@ -20,11 +20,11 @@ Route::view('/layanan', 'page.layanan')->name('page.layanan');
 
 
 Route::resource('mentors', MentorController::class);
+Route::resource('pelayanan', PelayananController::class);
 
 Route::get('/booking', [BookingController::class, 'create'])->name('booking.form');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
-// Route::resource('pelayanan', PelayananController::class);
 
 
 
@@ -33,5 +33,5 @@ Route::post('/booking', [BookingController::class, 'store'])->name('booking.stor
 // Route::resource('artikel', ArtikelController::class);
 // Route::resource('layanan', LayananController::class);
 // Route::resource('about', AboutController::class);
-// Route::resource('testimoni', ReviewController::class);
+Route::resource('testimoni', ReviewController::class);
 
