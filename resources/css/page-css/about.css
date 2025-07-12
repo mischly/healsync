@@ -1,6 +1,5 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color:#dbeafe;
+    background: linear-gradient(45deg, #8ec5fc 0%, #8dd3ff 25%, #a1d8ff 50%, #c1d2ff 75%, #e0c3ff 100%);
     margin: 0;
     padding: 0;
     color: #333;
@@ -95,8 +94,8 @@ h1 {
     gap: 40px;
 }
 
-.visi-misi-section{
-    margin-top: 100px; 
+.visi-misi-section {
+    margin-top: 100px;
 }
 
 .col {
@@ -141,7 +140,6 @@ ol {
 }
 
 .fitur-section {
-    background-color: #d5ebef; 
     padding: 80px 30px;
     text-align: center;
 }
@@ -158,7 +156,7 @@ ol {
     background: #fff;
     padding: 40px 30px;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     max-width: 320px;
     flex: 1 1 260px;
 }

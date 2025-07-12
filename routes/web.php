@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('page.index');
-});
+})->name('page.index');
 
 FacadesAuth::routes();
 
@@ -24,4 +24,4 @@ Route::resource('pelayanan', PelayananController::class);
 // Route::resource('artikel', ArtikelController::class);
 // Route::resource('layanan', LayananController::class);
 // Route::resource('about', AboutController::class);
-// Route::resource('testimoni', ReviewController::class);
+Route::resource('testimoni', ReviewController::class);

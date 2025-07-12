@@ -4,102 +4,98 @@
     @vite(['resources/css/page-css/artikel.css'])
 @endpush
 
-
 @section('content')
+<div class="artikel-container">
+    <article class="artikel">
+        <h1>Layanan Psikologi Online</h1>
+        <p>
+            Di era digital, kesehatan mental tak lagi harus ditangani secara tatap muka. Kami menghadirkan Layanan Psikologi Online yang dirancang untuk memberikan akses mudah, cepat, dan aman kepada siapa pun yang membutuhkan dukungan psikologis.
+        </p>
+        <p>
+            Melalui platform ini, kamu bisa mendapatkan bantuan profesional tanpa harus meninggalkan kenyamanan rumahmu. Cocok untuk kamu yang memiliki mobilitas tinggi, tinggal di daerah terpencil, atau sekadar ingin berbicara dengan tenaga ahli secara lebih privat dan fleksibel.
+        </p>
+        <p>
+            Kami percaya bahwa setiap individu berhak mendapatkan ruang untuk pulih, tumbuh, dan merasa dimengerti. Oleh karena itu, kami menyediakan layanan psikologis yang beragam dan dapat disesuaikan dengan kebutuhanmu.
+        </p>
 
-<div class="container">
+        <h2>Konseling Online</h2>
+        <p>Konseling online memungkinkan kamu untuk berbicara dengan psikolog atau konselor profesional melalui chat, video call, atau telepon. Cocok untuk masalah seperti:</p>
+        <ul>
+            <li>Stres dan tekanan kerja</li>
+            <li>Masalah hubungan</li>
+            <li>Krisis identitas</li>
+            <li>Gangguan kecemasan dan suasana hati</li>
+            <li>Masalah percaya diri</li>
+        </ul>
+        <p>
+            Kamu bisa menjadwalkan sesi sesuai waktu luang, tanpa kendala jarak atau transportasi. Konselor kami akan membantu secara empatik dan solutif.
+        </p>
 
-<article class="artikel">
-  <h1>Layanan Psikologi Online</h1>
-  <p>
-    Di era digital, kesehatan mental tak lagi harus ditangani secara tatap muka. Kami menghadirkan Layanan Psikologi Online yang dirancang untuk memberikan akses mudah, cepat, dan aman kepada siapa pun yang membutuhkan dukungan psikologis.
-  </p>
-  <p>
-    Melalui platform ini, kamu bisa mendapatkan bantuan profesional tanpa harus meninggalkan kenyamanan rumahmu. Cocok untuk kamu yang memiliki mobilitas tinggi, tinggal di daerah terpencil, atau sekadar ingin berbicara dengan tenaga ahli secara lebih privat dan fleksibel.
-  </p>
-  <p>
-    Kami percaya bahwa setiap individu berhak mendapatkan ruang untuk pulih, tumbuh, dan merasa dimengerti. Oleh karena itu, kami menyediakan layanan psikologis yang beragam dan dapat disesuaikan dengan kebutuhanmu.
-  </p>
+        <h2>Asesmen Psikologis</h2>
+        <p>
+            Asesmen psikologis adalah evaluasi untuk memahami kondisi mental, emosional, dan perilaku seseorang. Menggunakan tes kepribadian, IQ, emosi, hingga tes klinis.
+        </p>
+        <p>Bermanfaat untuk:</p>
+        <ul>
+            <li>Keperluan pendidikan</li>
+            <li>Dunia kerja</li>
+            <li>Proses diagnostik</li>
+            <li>Rekomendasi terapi</li>
+        </ul>
+        <p>
+            Hasil asesmen dijelaskan oleh psikolog dan dapat menjadi dasar keputusan penting dalam hidupmu.
+        </p>
 
-  <h2>Konseling Online</h2>
-  <p>Konseling online adalah layanan yang memungkinkan kamu untuk berbicara dengan psikolog atau konselor profesional melalui media digital, seperti chat, video call, atau telepon. Layanan ini cocok untuk kamu yang ingin membahas berbagai persoalan seperti:</p>
-  <ul>
-    <li>Stres dan tekanan kerja</li>
-    <li>Masalah hubungan (dengan pasangan, keluarga, atau teman)</li>
-    <li>Krisis identitas atau fase kehidupan</li>
-    <li>Gangguan kecemasan dan suasana hati</li>
-    <li>Masalah percaya diri atau self-esteem</li>
-  </ul>
-  <p>
-    Dengan konseling online, kamu bisa menjadwalkan sesi sesuai waktu luangmu, tanpa harus menghadapi kendala jarak atau transportasi. Konselor kami akan mendengarkan tanpa menghakimi dan membantumu menemukan cara-cara sehat untuk menghadapi tantangan hidup.
-  </p>
+        <h1>Layanan Psikologi Offline</h1>
+        <p>
+            Untuk kamu yang lebih nyaman dengan interaksi langsung, tersedia Layanan Psikologi Offline. Komunikasi lebih mendalam dan ekspresif, dilakukan di ruang konsultasi yang aman dan nyaman.
+        </p>
+        <p>
+            Interaksi langsung membantu membangun koneksi dan kepercayaan yang kuat dalam proses psikoterapi.
+        </p>
 
-  <h2>Asesmen Psikologis</h2>
-  <p>
-    Asesmen psikologis adalah proses evaluasi yang dilakukan oleh psikolog untuk memahami kondisi mental, emosional, dan perilaku seseorang secara menyeluruh. Dilakukan menggunakan alat ukur psikologis yang terstandarisasi, seperti tes kepribadian, tes IQ, asesmen emosi, hingga tes klinis.
-  </p>
-  <p>Asesmen ini sangat bermanfaat untuk:</p>
-  <ul>
-    <li>Keperluan pendidikan (gaya belajar, kesiapan sekolah)</li>
-    <li>Dunia kerja (minat dan bakat, rekrutmen)</li>
-    <li>Proses diagnostik (kondisi psikologis spesifik)</li>
-    <li>Rekomendasi terapi atau intervensi yang tepat</li>
-  </ul>
-  <p>
-    Hasil dari asesmen akan dijelaskan secara rinci oleh psikolog dan dapat menjadi dasar pengambilan keputusan yang penting dalam hidupmu.
-  </p>
+        <h2>Konseling Tatap Muka</h2>
+        <p>
+            Kamu bisa bertemu langsung dengan psikolog di ruang praktik yang kondusif. Sangat efektif untuk:
+        </p>
+        <ul>
+            <li>Masalah relasi kompleks</li>
+            <li>Trauma berat</li>
+            <li>Kondisi yang butuh observasi langsung</li>
+        </ul>
+        <p>
+            Psikolog kami mendampingi secara empatik dan profesional.
+        </p>
 
-  <h1>Layanan Psikologi Offline</h1>
-  <p>
-    Untuk kamu yang lebih nyaman dengan interaksi langsung, kami menyediakan Layanan Psikologi Offline melalui pertemuan tatap muka bersama psikolog profesional. Melalui pendekatan ini, komunikasi menjadi lebih mendalam dan ekspresif.
-  </p>
-  <p>
-    Layanan offline kami dilakukan di ruang konsultasi yang aman, nyaman, dan dirancang khusus untuk menciptakan suasana suportif. Dalam beberapa kasus, interaksi langsung bisa memberikan dampak yang lebih kuat dalam membangun koneksi dan kepercayaan.
-  </p>
+        <h2>Asesmen Psikologis Langsung</h2>
+        <p>
+            Dilakukan tatap muka, menggunakan alat ukur terstandar. Tes dan wawancara mendalam untuk evaluasi psikologis menyeluruh.
+        </p>
+        <p>Digunakan untuk:</p>
+        <ul>
+            <li>Diagnosis gangguan mental</li>
+            <li>Evaluasi minat dan kepribadian</li>
+            <li>Kebutuhan pendidikan anak</li>
+            <li>Seleksi kerja atau promosi</li>
+        </ul>
+        <p>
+            Psikolog menjelaskan hasil dengan rekomendasi tindak lanjut.
+        </p>
 
-  <h2>Konseling Tatap Muka</h2>
-  <p>
-    Layanan ini memungkinkan kamu bertemu langsung dengan psikolog di ruang praktik yang kondusif. Dalam suasana mendukung, kamu bisa mengekspresikan diri dan membangun hubungan terapeutik yang erat.
-  </p>
-  <p>Layanan ini sangat efektif untuk:</p>
-  <ul>
-    <li>Masalah relasi yang kompleks</li>
-    <li>Trauma atau pengalaman masa lalu yang berat</li>
-    <li>Situasi yang membutuhkan observasi perilaku langsung</li>
-  </ul>
-  <p>
-    Psikolog kami akan mendampingi kamu secara empatik dan profesional untuk mengurai persoalan serta mencari jalan keluar yang sesuai dengan kebutuhanmu.
-  </p>
-
-  <h2>Asesmen Psikologis Langsung</h2>
-  <p>
-    Asesmen ini dilakukan secara tatap muka, menggunakan alat ukur psikologis yang tervalidasi dan terstandarisasi. Selama prosesnya, kamu akan menjalani tes dan wawancara untuk mendapatkan pemahaman utuh tentang kondisi psikologis kamu.
-  </p>
-  <p>Kegunaan asesmen ini mencakup:</p>
-  <ul>
-    <li>Diagnosis gangguan mental</li>
-    <li>Evaluasi minat, bakat, dan kepribadian</li>
-    <li>Kebutuhan pendidikan anak (intelegensi, kesiapan, kesulitan belajar)</li>
-    <li>Seleksi kerja atau promosi jabatan</li>
-  </ul>
-  <p>
-    Psikolog akan memberikan laporan hasil dan interpretasi secara jelas, termasuk rekomendasi tindak lanjut jika diperlukan.
-  </p>
-
-  <h2>Psikoterapi Terjadwal</h2>
-  <p>
-    Psikoterapi offline diberikan secara berkala dalam jadwal yang telah disepakati bersama. Pertemuan konsisten agar proses pemulihan berjalan terarah dan berkesinambungan.
-  </p>
-  <p>Jenis terapi disesuaikan untuk tujuan seperti:</p>
-  <ul>
-    <li>Mengelola kecemasan atau depresi</li>
-    <li>Pemulihan dari trauma atau kehilangan</li>
-    <li>Menangani gangguan kepribadian</li>
-    <li>Meningkatkan pengendalian diri dan relasi interpersonal</li>
-  </ul>
-  <p>
-    Melalui terapi tatap muka, psikolog dapat mengamati respons dan perubahan secara langsung untuk menyesuaikan pendekatan sepanjang proses terapi.
-  </p>
-</article>
-
+        <h2>Psikoterapi Terjadwal</h2>
+        <p>
+            Psikoterapi dilakukan secara berkala sesuai jadwal. Konsistensi membantu pemulihan yang terarah.
+        </p>
+        <p>Disesuaikan dengan kebutuhan seperti:</p>
+        <ul>
+            <li>Kecemasan atau depresi</li>
+            <li>Pemulihan dari trauma</li>
+            <li>Gangguan kepribadian</li>
+            <li>Relasi interpersonal</li>
+        </ul>
+        <p>
+            Psikolog dapat memantau perubahan dan menyesuaikan pendekatan secara langsung.
+        </p>
+    </article>
+</div>
 @endsection

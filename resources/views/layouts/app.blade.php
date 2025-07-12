@@ -39,19 +39,19 @@
                     <!-- Menu Utama di Tengah -->
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a href="" class="nav-link {{ request()->is('/') ? 'active' : '' }}">BERANDA</a>
+                            <a href="{{ route('page.index') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">BERANDA</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('page.artikel') }}" class="nav-link">ARTIKEL</a>
+                            <a href="{{ route('page.artikel') }}" class="nav-link {{ request()->is('artikel') ? 'active' : '' }}">ARTIKEL</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('page.layanan') }}" class="nav-link">LAYANAN</a>
+                            <a href="{{ route('page.layanan') }}" class="nav-link {{ request()->is('layanan') ? 'active' : '' }}">LAYANAN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('page.about') }}" class="nav-link">TENTANG KAMI</a>
+                            <a href="{{ route('page.about') }}" class="nav-link c">TENTANG KAMI</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">REVIEW</a>
+                            <a href="{{ route('testimoni.index') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">REVIEW</a>
                         </li>
                     </ul>
 
