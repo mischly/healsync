@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/page-css/layanan.css',
                 'resources/css/page-css/about.css',
                 'resources/css/page-css/artikel.css',
+                'resources/css/pelayanan/index.css',
                 'resources/css/page-css/testimoni.css',
             ],
             refresh: true,

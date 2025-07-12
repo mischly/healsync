@@ -16,8 +16,13 @@
                     <div class="card-konseling">
                         <h5>Konseling untuk saya</h5>
                         <p class="mb-2">Konseling&nbsp;Online</p>
-                        <a href="#" class="btn-pilih">Pilih&nbsp;→</a>
-                        <img src="{{ asset('img/vektor7.png') }}" alt="Konseling Online" class="konseling-img">
+
+                        <a href="{{ route('pelayanan.index') }}" class="btn-pilih">Pilih&nbsp;→</a>
+                        <img src="{{ asset('img/vektor7.png') }}"
+                             alt="Konseling Online" class="konseling-img">
+
+                        {{ -- <a href="#" class="btn-pilih">Pilih&nbsp;→</a>
+                        <img src="{{ asset('img/vektor7.png') }}" alt="Konseling Online" class="konseling-img"> --}}
                     </div>
 
                     <div class="card-konseling">
