@@ -1,13 +1,6 @@
-body {
-    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7faff;
-}
-
 .layanan-section {
     padding: 80px 40px;
-    background: linear-gradient(45deg, rgba(142, 197, 252, 1) 0%, rgba(141, 211, 255, 1) 25%, rgba(161, 216, 255, 1) 50%, rgba(193, 210, 255, 1) 75%, rgba(224, 195, 255, 1) 100%);
+    background: linear-gradient(45deg, #8ec5fc 0%, #8dd3ff 25%, #a1d8ff 50%, #c1d2ff 75%, #e0c3ff 100%);
     color: #1a1a1a;
     min-height: 100vh;
 }
@@ -100,7 +93,6 @@ body {
     height: 80px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .layanan-section {
         padding: 60px 20px;

@@ -20,7 +20,7 @@
                 <!-- Right Side - Blue Gradient Background -->
                 <div class="col-lg-6 d-none d-lg-block" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                     <div class="d-flex justify-content-center align-items-center h-100">
-                        <img src="{{ asset('img/vektor2.png') }}" alt="" class="rounded">
+                        <img src="{{ asset('img/register.svg') }}" alt="" class="rounded" style="width: 434px; height: 275px;">
                     </div>
                     <a href="{{ url('/') }}" class="btn btn-outline-light position-absolute top-0 start-0 m-3">
                         Kembali ←

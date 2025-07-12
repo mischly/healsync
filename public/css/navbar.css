@@ -1,16 +1,14 @@
 nav.navbar {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-    background-color: white !important;
+    padding: 6px 0;
+    background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-    min-height: 60px !important;
-    will-change: transform;
-    transform: translateZ(0);
+    min-height: 60px;
+    position: relative;
+    z-index: 1000;
 }
 
-nav.navbar .container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+.navbar .container {
+    padding: 0;
     margin: 0 auto;
 }
 
@@ -19,61 +17,64 @@ ul.navbar-nav {
     padding: 0;
 }
 
-ul.navbar-nav.mx-auto .nav-link {
+ul.navbar-nav .nav-link {
     font-weight: 500;
-    color: #333333;
+    color: #333;
     margin-right: 15px;
-    position: relative;
-    transition: color 0.3s ease;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 8px 0;
     font-size: 16px;
     line-height: 1.2;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-ul.navbar-nav.mx-auto .nav-link::after {
+ul.navbar-nav .nav-link::after {
     content: '';
     position: absolute;
-    left: 0;
     bottom: -2px;
+    left: 0;
     height: 2px;
-    width: 0%;
+    width: 0;
     background-color: #076d7d;
     transition: width 0.3s ease;
-    border-radius: 1px;
 }
 
-ul.navbar-nav.mx-auto .nav-link:hover,
-ul.navbar-nav.mx-auto .nav-link.active {
+ul.navbar-nav .nav-link:hover,
+ul.navbar-nav .nav-link.active {
     color: #076d7d;
     font-weight: 600;
-    text-decoration: none;
 }
 
-ul.navbar-nav.mx-auto .nav-link:hover::after,
-ul.navbar-nav.mx-auto .nav-link.active::after {
+ul.navbar-nav .nav-link:hover::after,
+ul.navbar-nav .nav-link.active::after {
     width: 100%;
 }
 
 .navbar-nav .nav-link[href*="login"],
 .navbar-nav .nav-link[href*="register"] {
-    color: #076d7d;
     font-weight: 600;
-    transition: color 0.3s ease;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    font-size: 16px;
+    color: #076d7d;
 }
 
 .navbar-nav .nav-link[href*="login"]:hover,
 .navbar-nav .nav-link[href*="register"]:hover {
     color: #054b59;
-    text-decoration: none;
 }
 
 .navbar-brand img {
     width: 135px;
     height: auto;
-    max-width: 100%;
     display: block;
+    max-width: 100%;
+}
+
+/* ~ Scrollbar */
+::-webkit-scrollbar {
+    background-color: white;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg,rgba(209, 255, 254, 1) 0%, rgba(88, 233, 255, 1) 70%, rgba(0, 221, 255, 1) 100%);
+    border-radius: 25px;
 }

@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
-@section('content')
-<link rel="stylesheet" href="{{ asset('css/layanan.css') }}">
+@push('styles')
+    @vite(['resources/css/page-css/layanan.css'])
+@endpush
 
+
+@section('content')
 <div class="layanan-section">
     <h2 class="layanan-title">Layanan Psikologi Online</h2>
     <p class="layanan-subtitle">Dukungan profesional yang dapat kamu akses secara fleksibel.</p>
