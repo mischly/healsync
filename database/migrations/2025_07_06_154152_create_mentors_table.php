@@ -9,8 +9,10 @@ return new class extends Migration {
     {
         Schema::create('mentors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('nama');
             $table->string('bidang');
+            $table->text('biodata');
             $table->string('foto')->nullable();
             $table->timestamps();
         });

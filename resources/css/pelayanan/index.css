@@ -2,7 +2,7 @@ body {
     background: linear-gradient(45deg, #8ec5fc 0%, #8dd3ff 25%, #a1d8ff 50%, #c1d2ff 75%, #e0c3ff 100%);
 }
 
-.container {
+.container.pelayanan {
   max-width: 1200px;
   margin: auto;
   padding: 40px 20px 80px;

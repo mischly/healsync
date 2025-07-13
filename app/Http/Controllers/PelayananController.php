@@ -74,7 +74,7 @@ class PelayananController extends Controller
             ],
         ];
 
-        return view('pelayanan.index', compact('psikologs'));
+        return view('user.pelayanan.index', compact('psikologs'));
     }
 
     /**

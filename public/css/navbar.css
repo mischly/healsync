@@ -68,6 +68,15 @@ ul.navbar-nav .nav-link.active::after {
     max-width: 100%;
 }
 
+.avatar-img {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-link.no-underline::after {
+    display: none !important;
+}
+
 /* ~ Scrollbar */
 ::-webkit-scrollbar {
     background-color: white;

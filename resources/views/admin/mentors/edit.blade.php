@@ -4,7 +4,7 @@
 <div class="container py-4">
     <h2 class="mb-4">Edit Mentor</h2>
 
-    <form action="{{ route('mentors.update', $mentor->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.mentors.update', $mentor->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -42,7 +42,7 @@
 
         {{-- Tombol --}}
         <button type="submit" class="btn btn-success">Update</button>
-        <a href="{{ route('mentors.index') }}" class="btn btn-secondary">Batal</a>
+        <a href="{{ route('admin.mentors.index') }}" class="btn btn-secondary">Batal</a>
     </form>
 </div>
 @endsection

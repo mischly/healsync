@@ -1,0 +1,46 @@
+body {
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.card {
+    padding: 12px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.card-body i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.card-body .btn {
+    font-size: 0.85rem;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.row {
+    row-gap: 1rem;
+}
+
+.welcome-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.admin-profile img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

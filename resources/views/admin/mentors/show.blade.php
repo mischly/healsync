@@ -16,6 +16,6 @@
         </div>
     </div>
 
-    <a href="{{ route('mentors.index') }}" class="btn btn-secondary mt-3">Kembali</a>
+    <a href="{{ route('admin.mentors.index') }}" class="btn btn-secondary mt-3">Kembali</a>
 </div>
 @endsection

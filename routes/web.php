@@ -1,37 +1,33 @@
 <?php
 
 use App\Http\Controllers\PelayananController;
-use Illuminate\Container\Attributes\Auth;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
-use App\Http\Controllers\ReviewController;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\BookingController;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('page.index');
 })->name('page.index');
 
-FacadesAuth::routes();
+Auth::routes();
+
+// Page
 
 Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
+Route::view('/review', 'page.review')->name('page.review');
 
-
-Route::resource('mentors', MentorController::class);
 Route::resource('pelayanan', PelayananController::class);
+Route::get('/booking/{mentor}', [BookingController::class, 'create'])->name('booking.form');
+Route::post('/booking/{mentor}', [BookingController::class, 'store'])->name('booking.store');
 
-Route::get('/booking', [BookingController::class, 'create'])->name('booking.form');
-Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+// Middleware admin
 
-
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::resource('artikel', ArtikelController::class);
-// Route::resource('layanan', LayananController::class);
-// Route::resource('about', AboutController::class);
-Route::resource('testimoni', ReviewController::class);
+Route::prefix('admin')->name('admin.')->middleware(['auth', RoleMiddleware::class])->group(function () {
+    Route::view('/', 'admin.dashboard')->name('dashboard');
+    Route::resource('mentors', MentorController::class);
+});
 

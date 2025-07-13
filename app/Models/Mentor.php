@@ -11,5 +11,22 @@ class Mentor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'bidang', 'foto'];
+    protected $fillable = ['user_id', 'nama', 'bidang', 'biodata', 'foto'];
+
+    // Relasi untuk review mentor
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function averageRating()
+    {
+        return $this->reviews()->avg('rating');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
