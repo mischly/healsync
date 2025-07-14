@@ -34,7 +34,7 @@
                 <div class="card-body text-center">
                     <i class="bi bi-people-fill display-4 text-success"></i>
                     <h5 class="mt-2">Data User</h5>
-                    <a href="#" class="btn btn-sm btn-outline-success mt-2">Kelola</a>
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-sm btn-outline-success mt-2">Kelola</a>
                 </div>
             </div>
         </div>

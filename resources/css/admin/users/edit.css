@@ -1,0 +1,29 @@
+body {
+    background: linear-gradient(90deg, #7b9fdc, #6ee2f5);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    border: none;
+}
+
+h2 {
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 10px;
+}

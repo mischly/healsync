@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/css/pelayanan/index.css',
                 'resources/css/page-css/testimoni.css',
                 'resources/css/admin/dashboard.css',
+                'resources/css/admin/users/index.css',
                 'resources/css/mentors/index.css',
                 'resources/css/mentors/create.css',
             ],

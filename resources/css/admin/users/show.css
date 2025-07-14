@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    min-height: 100vh;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #2f62e9;
+}
+
+.row.mb-3 {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.fw-bold {
+    color: #444;
+}
+
+.badge.bg-primary {
+    background-color: #2196f3;
+}
+
+.badge.bg-danger {
+    background-color: #f44336;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

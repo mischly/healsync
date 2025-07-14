@@ -4,6 +4,7 @@ use App\Http\Controllers\PelayananController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::resource('pelayanan', PelayananController::class);
 Route::prefix('admin')->name('admin.')->middleware(['auth', RoleMiddleware::class])->group(function () {
     Route::view('/', 'admin.dashboard')->name('dashboard');
     Route::resource('mentors', MentorController::class);
+    Route::resource('users', UserController::class);
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
 });
 
 // Route untuk menghapus sweet alert dari flash message
