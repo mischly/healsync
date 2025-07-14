@@ -1,0 +1,108 @@
+.user-management-container {
+background: #7F7FD5;
+background: -webkit-linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
+background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table-custom {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table-custom thead {
+  background-color: #3454d1;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table-custom tbody td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.btn-view {
+  background-color: #03a9f4;
+  color: white;
+  border: none;
+}
+
+.btn-view:hover {
+  background-color: #0288d1;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #FFD700;
+  color: white;
+  border: none;
+}
+
+.btn-edit:hover {
+  background-color: #e6c200;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.search-box {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  border-radius: 20px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+.search-box button {
+  border-radius: 50%;
+  background-color: #2196f3;
+  color: white;
+  padding: 8px 12px;
+  margin-left: 10px;
+  border: none;
+}
+
+.search-box button:hover {
+  background-color: #1976d2;
+}
+
+.pagination .page-item .page-link {
+  border-radius: 50% !important;
+  margin: 0 5px;
+  color: #2f62e9;
+  font-weight: bold;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #2f62e9;
+  color: white;
+  border: none;
+}
+
+
+.badge.bg-danger {
+  background-color: #e53935 !important;
+}
+
+.badge.bg-primary {
+  background-color: #2196f3 !important;
+}
