@@ -21,8 +21,6 @@ Route::view('/layanan', 'page.layanan')->name('page.layanan');
 Route::view('/review', 'page.review')->name('page.review');
 
 Route::resource('pelayanan', PelayananController::class);
-Route::get('/booking/{mentor}', [BookingController::class, 'create'])->name('booking.form');
-Route::post('/booking/{mentor}', [BookingController::class, 'store'])->name('booking.store');
 
 // Middleware admin
 
@@ -39,3 +37,13 @@ Route::post('/clear-flash', function () {
 })->name('flash.clear');
 
 
+// Route Booking
+Route::middleware(['auth'])->group(function () {
+    Route::get('/booking/form/{mentor}', [BookingController::class, 'create'])->name('booking.form');
+    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+});
+
+// Config Untuk Booking
+Route::get('/coba-slot', function () {
+    return config('slots');
+});

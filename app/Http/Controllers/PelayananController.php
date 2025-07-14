@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Mentor;
 
 class PelayananController extends Controller
 {
@@ -11,69 +12,7 @@ class PelayananController extends Controller
      */
     public function index()
     {
-        $psikologs = [
-            [
-                'nama' => 'Dr. Raditya Mahesa, M.Psi.',
-                'gambar' => asset('img/dokter1.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-            [
-                'nama' => 'Dr. Kayla Theresia, M.Psi.,',
-                'gambar' => asset('img/dokter2.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-            [
-                'nama' => 'Dr. Keenan, M.Psi.',
-                'gambar' => asset('img/dokter3.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-            [
-                'nama' => 'Dr. Kayla Theresia, M.Psi.',
-                'gambar' => asset('img/dokter4.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-            [
-                'nama' => 'Dr. Arya Aditya, M.Psi.',
-                'gambar' => asset('img/dokter5.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-            [
-                'nama' => 'Dr. Nadhira Elvania, M.Psi.',
-                'gambar' => asset('img/dokter6.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-             [
-                'nama' => 'Dr. Andrean Halim, M.Psi.',
-                'gambar' => asset('img/dokter7.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-             [
-                'nama' => 'Elina Putri, M.Psi.',
-                'gambar' => asset('img/dokter8.jpeg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-             [
-                'nama' => 'Dr. Julian Mahendra, M.Psi.',
-                'gambar' => asset('img/dokter9.jpg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-             [
-                'nama' => 'Dr. Amara Celestine, M.Psi.',
-                'gambar' => asset('img/dokter10.jpg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-             [
-                'nama' => 'Dr. Daryl Mahendra, M.Psi.',
-                'gambar' => asset('img/dokter11.jpg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-             [
-                'nama' => 'Dr. Tiara Nandita, M.Psi.',
-                'gambar' => asset('img/dokter12.jpg'),
-                'jenis' => 'Psikolog Klinis'
-            ],
-        ];
-
+        $psikologs = Mentor::with('reviews')->get();
         return view('user.pelayanan.index', compact('psikologs'));
     }
 
@@ -96,9 +35,10 @@ class PelayananController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $mentor = Mentor::findOrFail($id);
+        return view('user.pelayanan.show', compact('mentor'));
     }
 
     /**

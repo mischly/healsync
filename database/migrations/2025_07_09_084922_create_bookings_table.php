@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('mentor_id')->constrained()->onDelete('cascade');
             $table->enum('metode', ['online', 'offline']);
-            $table->dateTime('jadwal');
-            $table->text('keluhan');
+            $table->date('tanggal');
+            $table->time('jam');
+            $table->text('keluhan')->nullable();
             $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
             $table->timestamps();
         });
