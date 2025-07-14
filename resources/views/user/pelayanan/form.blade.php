@@ -89,11 +89,13 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="tanggal" class="form-label fw-semibold">Tanggal</label>
-                        <input type="date" name="tanggal" class="form-control" required value="{{ request('tanggal') }}">
+                        <div class="form-control bg-light">{{ request('tanggal') }}</div>
+                        <input type="hidden" name="tanggal" class="form-control" required value="{{ request('tanggal') }}">
                     </div>
                     <div class="col-md-6">
-                        <label for="jam" class="form-label fw-semibold">Jam</label>
-                        <input type="time" name="jam" class="form-control" required value="{{ request('jam') }}">
+                        <label class="form-label fw-semibold">Jam</label>
+                        <div class="form-control bg-light">{{ request('jam') }} WIB</div>
+                        <input type="hidden" name="jam" value="{{ request('jam') }}">
                     </div>
                 </div>
 
@@ -102,7 +104,7 @@
                     <textarea name="keluhan" class="form-control" rows="4" required placeholder="Tuliskan keluhan atau topik yang ingin dibahas..."></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-outline-primary w-100">Kirim Booking</button>
+                <button type="submit" class="btn btn-outline-primary w-100">Konfirmasi Konsultasi!</button>
             </form>
         </div>
     </div>

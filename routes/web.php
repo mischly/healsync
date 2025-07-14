@@ -15,7 +15,6 @@ Route::get('/', function () {
 Auth::routes();
 
 // Page
-
 Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
@@ -24,7 +23,6 @@ Route::view('/review', 'page.review')->name('page.review');
 Route::resource('pelayanan', PelayananController::class);
 
 // Middleware admin
-
 Route::prefix('admin')->name('admin.')->middleware(['auth', RoleMiddleware::class])->group(function () {
     Route::view('/', 'admin.dashboard')->name('dashboard');
     Route::resource('mentors', MentorController::class);
@@ -33,7 +31,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', RoleMiddleware::clas
 });
 
 // Route untuk menghapus sweet alert dari flash message
-
 Route::post('/clear-flash', function () {
     session()->forget(['success', 'error', 'needLogin']);
     return response()->json(['cleared' => true]);
@@ -43,6 +40,7 @@ Route::post('/clear-flash', function () {
 // Route Booking
 Route::middleware(['auth'])->group(function () {
     Route::get('/booking/form/{mentor}', [BookingController::class, 'create'])->name('booking.form');
+    Route::get('/jadwal-tersedia', [BookingController::class, 'getAvailableSlots']);
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 });
 

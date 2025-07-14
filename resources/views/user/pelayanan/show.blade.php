@@ -6,7 +6,8 @@
 
 @section('content')
 @php
-    $jadwal = $jadwal ?? null;
+    use Carbon\Carbon;
+    Carbon::setLocale('id');
 @endphp
 <div class="container py-5">
     <h2 class="mb-5 fw-bold text-center">Profil Mentor {{ $mentor->nama }}</h2>
@@ -69,7 +70,6 @@
             </div>
         </div>
 
-        {{-- FORM PILIH JADWAL --}}
         <div class="col-md-4">
             <form id="jadwalForm" action="{{ route('booking.form', $mentor->id) }}" method="GET">
                 @csrf
@@ -81,38 +81,27 @@
                     <h5 class="fw-bold mb-3">Jadwal Praktek</h5>
                     <p class="text-muted">Pilih Tanggal dan Waktu</p>
 
-                    {{-- Tanggal --}}
                     <div class="d-flex gap-2 flex-wrap mb-3">
-                        <button type="button" class="btn btn-primary pilih-tanggal active" data-date="2025-07-14">
-                            Hari ini<br><small>14 Jul</small>
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary pilih-tanggal" data-date="2025-07-16">
-                            Rabu<br><small>16 Jul</small>
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary pilih-tanggal" data-date="2025-07-17">
-                            Kamis<br><small>17 Jul</small>
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary pilih-tanggal" data-date="2025-07-19">
-                            Sabtu<br><small>19 Jul</small>
-                        </button>
+                        @for ($i = 0; $i < 4; $i++)
+                            @php
+                                $tgl = Carbon::now()->addDays($i);
+                                $tglFormatted = $tgl->format('Y-m-d');
+                                $isActive = $i === 0 ? 'btn-primary active' : 'btn-outline-secondary';
+                            @endphp
+                            <button type="button" class="btn {{ $isActive }} pilih-tanggal"
+                                data-date="{{ $tglFormatted }}">
+                                {{ $tgl->translatedFormat('l') }}<br><small>{{ $tgl->format('d M') }}</small>
+                            </button>
+                        @endfor
                     </div>
 
                     <hr>
 
-                    {{-- Jam --}}
-                    <label class="fw-semibold mb-1">Siang - Sore</label>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                        <button type="button" class="btn btn-primary pilih-jam active" data-time="14:00">14:00 WIB</button>
-                        <button type="button" class="btn btn-outline-secondary pilih-jam" data-time="15:00">15:00 WIB</button>
-                        <button type="button" class="btn btn-outline-secondary pilih-jam" data-time="16:00">16:00 WIB</button>
+                    <div id="slot-container">
+                        <p class="text-muted">Pilih tanggal untuk melihat jam yang tersedia.</p>
                     </div>
 
-                    <label class="fw-semibold mb-1">Malam</label>
-                    <div class="d-flex flex-wrap gap-2 mb-4">
-                        <button type="button" class="btn btn-outline-secondary pilih-jam" data-time="18:00">18:00 WIB</button>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100">Pilih Jadwal</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Pilih Jadwal</button>
                 </div>
             </form>
         </div>
@@ -124,16 +113,44 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const tanggalButtons = document.querySelectorAll('.pilih-tanggal');
-        const jamButtons = document.querySelectorAll('.pilih-jam');
         const inputTanggal = document.getElementById('tanggalTerpilih');
         const inputJam = document.getElementById('jamTerpilih');
+        const slotContainer = document.getElementById('slot-container');
+        const mentorId = {{ $mentor->id }};
 
-        // Set default tanggal & jam dari tombol aktif
-        const activeTanggal = document.querySelector('.pilih-tanggal.active');
-        if (activeTanggal) inputTanggal.value = activeTanggal.getAttribute('data-date');
+        function loadJam(tanggal) {
+            inputTanggal.value = tanggal;
+            inputJam.value = '';
 
-        const activeJam = document.querySelector('.pilih-jam.active');
-        if (activeJam) inputJam.value = activeJam.getAttribute('data-time');
+            slotContainer.innerHTML = '<p class="text-muted">Memuat jadwal...</p>';
+
+            fetch(`/jadwal-tersedia?mentor_id=${mentorId}&tanggal=${tanggal}`)
+                .then(res => res.json())
+                .then(slots => {
+                    if (slots.length === 0) {
+                        slotContainer.innerHTML = '<p class="text-danger">Jadwal mentor penuh pada tanggal ini :)</p>';
+                        return;
+                    }
+
+                    let html = '<label class="fw-semibold mb-1">Jam Tersedia</label><div class="d-flex flex-wrap gap-2">';
+                    slots.forEach(jam => {
+                        html += `<button type="button" class="btn btn-outline-secondary pilih-jam" data-time="${jam}">${jam} WIB</button>`;
+                    });
+                    html += '</div>';
+
+                    slotContainer.innerHTML = html;
+
+                    document.querySelectorAll('.pilih-jam').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            document.querySelectorAll('.pilih-jam').forEach(b => b.classList.remove('btn-primary', 'active'));
+                            document.querySelectorAll('.pilih-jam').forEach(b => b.classList.add('btn-outline-secondary'));
+                            btn.classList.remove('btn-outline-secondary');
+                            btn.classList.add('btn-primary', 'active');
+                            inputJam.value = btn.getAttribute('data-time');
+                        });
+                    });
+                });
+        }
 
         tanggalButtons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -141,19 +158,15 @@
                 tanggalButtons.forEach(b => b.classList.add('btn-outline-secondary'));
                 btn.classList.remove('btn-outline-secondary');
                 btn.classList.add('btn-primary', 'active');
-                inputTanggal.value = btn.getAttribute('data-date');
+                const selectedDate = btn.getAttribute('data-date');
+                loadJam(selectedDate);
             });
         });
 
-        jamButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                jamButtons.forEach(b => b.classList.remove('btn-primary', 'active'));
-                jamButtons.forEach(b => b.classList.add('btn-outline-secondary'));
-                btn.classList.remove('btn-outline-secondary');
-                btn.classList.add('btn-primary', 'active');
-                inputJam.value = btn.getAttribute('data-time');
-            });
-        });
+        const defaultTanggal = document.querySelector('.pilih-tanggal.active');
+        if (defaultTanggal) {
+            loadJam(defaultTanggal.getAttribute('data-date'));
+        }
 
         document.getElementById('jadwalForm').addEventListener('submit', function(e) {
             if (!inputTanggal.value || !inputJam.value) {

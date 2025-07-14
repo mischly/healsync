@@ -28,13 +28,24 @@ class BookingController extends Controller
 
         if ($request->filled(['tanggal', 'jam'])) {
             try {
-                $jadwal = Carbon::parse("{$request->tanggal} {$request->jam}:00");
+                $jadwal = \Carbon\Carbon::parse("{$request->tanggal} {$request->jam}:00");
             } catch (\Exception $e) {
                 $jadwal = null;
             }
         }
 
-        return view('user.pelayanan.form', compact('mentor', 'jadwal'));
+        $slots = config('slots');
+
+        $tanggalList = collect(range(0, 6))->map(function ($i) {
+            $tanggal = now()->addDays($i);
+            return [
+                'tanggal' => $tanggal->toDateString(),
+                'hari' => $i === 0 ? 'Hari ini' : $tanggal->translatedFormat('l'),
+                'short' => $tanggal->translatedFormat('d M'),
+            ];
+        })->take(4);
+
+        return view('user.pelayanan.form', compact('mentor', 'jadwal', 'slots', 'tanggalList'));
     }
 
     /**
@@ -105,4 +116,25 @@ class BookingController extends Controller
     {
         //
     }
+
+    public function getAvailableSlots(Request $request)
+    {
+        $mentorId = $request->mentor_id;
+        $tanggal = $request->tanggal;
+
+        $allSlots = config('slots');
+
+        $booked = Booking::where('mentor_id', $mentorId)
+            ->whereDate('jadwal', $tanggal)
+            ->pluck('jadwal')
+            ->map(function ($jadwal) {
+                return Carbon::parse($jadwal)->format('H:i');
+            })
+            ->toArray();
+
+        $tersedia = array_values(array_diff($allSlots, $booked));
+
+        return response()->json($tersedia);
+    }
+
 }

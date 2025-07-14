@@ -56,7 +56,7 @@
                         <div class="mb-3">
                             <label class="form-label">Bidang</label>
                             <select name="bidang" class="form-select @error('bidang') is-invalid @enderror" required>
-                                <option value="">-- Pilih Bidang --</option>
+                                <option value="">Pilih Bidang</option>
                                 @php $selectedBidang = old('bidang', $mentor->bidang); @endphp
                                 <option value="Klinis" {{ $selectedBidang == 'Klinis' ? 'selected' : '' }}>Klinis</option>
                                 <option value="Pendidikan" {{ $selectedBidang == 'Pendidikan' ? 'selected' : '' }}>Pendidikan</option>
