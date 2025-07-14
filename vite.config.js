@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/css/page-css/about.css',
                 'resources/css/page-css/artikel.css',
                 'resources/css/page-css/testimoni.css',
+                'resources/css/page-css/profil.css',
             ],
             refresh: true,
         }),
