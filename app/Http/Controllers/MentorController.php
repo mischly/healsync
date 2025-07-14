@@ -98,34 +98,55 @@ class MentorController extends Controller
 
     public function edit($id)
     {
-        $mentor = Mentor::findOrFail($id);
+        $mentor = Mentor::with('user')->findOrFail($id);
         return view('admin.mentors.edit', compact('mentor'));
     }
 
+
     public function update(Request $request, $id)
     {
-        $mentor = Mentor::findOrFail($id);
+        $mentor = Mentor::with('user')->findOrFail($id);
+        $user = $mentor->user;
 
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,' . $user->id,
+            'phone' => 'required|string|max:20',
             'bidang' => 'required|string|max:255',
-            'foto' => 'nullable|image|max:2048',
+            'biodata' => 'required|string',
+            'password' => 'nullable|confirmed|min:6',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $mentor->nama = $request->nama;
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->phone = $request->phone;
+
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        $mentor->nama = $request->name;
         $mentor->bidang = $request->bidang;
+        $mentor->biodata = $request->biodata;
 
         if ($request->hasFile('foto')) {
             if ($mentor->foto && Storage::exists('public/' . $mentor->foto)) {
                 Storage::delete('public/' . $mentor->foto);
             }
 
-            $mentor->foto = $request->file('foto')->store('foto_mentors', 'public');
+            $file = $request->file('foto');
+            $filename = now()->format('Ymd_His') . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $fotoPath = $file->storeAs('foto_mentors', $filename, 'public');
+
+            $mentor->foto = $fotoPath;
         }
 
         $mentor->save();
 
-        return redirect()->route('admin.mentors.index')->with('success', 'Data mentor berhasil diperbarui.');
+        return redirect()->route('admin.mentors.index')->with('success', 'Data mentor dan akun pengguna berhasil diperbarui.');
     }
 
     public function destroy($id)

@@ -164,29 +164,58 @@
         @stack('scripts')
     </div>
 
-    {{-- Sweet Alert --}}
+        {{-- Sweetalert Toast ver --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @if (session('success'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Sukses',
-            text: '{{ session('success') }}',
-            confirmButtonColor: '#3085d6'
-        });
-    </script>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top',
+                icon: 'success',
+                title: @json(session('success')),
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didDestroy: function () {
+                    fetch("{{ route('flash.clear') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({})
+                    });
+                }
+            });
+        </script>
     @endif
 
-    @if (session('error'))
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Gagal',
-            text: '{{ session('error') }}',
-            confirmButtonColor: '#d33'
-        });
-    </script>
+    @if(session('error'))
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top',
+                icon: 'error',
+                title: @json(session('error')),
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didDestroy: function () {
+                    fetch("{{ route('flash.clear') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content'),
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({})
+                    });
+                }
+            });
+        </script>
     @endif
+
+    @stack('scripts')
 
 </body>
 </html>

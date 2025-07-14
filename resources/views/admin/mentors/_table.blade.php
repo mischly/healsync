@@ -6,6 +6,7 @@
             <th>NAMA</th>
             <th>BIDANG</th>
             <th>BIODATA</th>
+            <th>TANGGAL DAFTAR</th>
             <th>EMAIL</th>
             <th style="width: 110px">AKSI</th>
         </tr>
@@ -22,6 +23,7 @@
                 <td>{{ $mentor->nama }}</td>
                 <td>{{ $mentor->bidang }}</td>
                 <td>{{ \Illuminate\Support\Str::limit($mentor->biodata, 60) }}</td>
+                <td>{{ $mentor->created_at->format('d M Y') }}</td>
                 <td>{{ $mentor->user->email ?? '-' }}</td>
                 <td>
                     <div class="btn-group btn-group-sm">

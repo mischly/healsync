@@ -31,3 +31,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', RoleMiddleware::clas
     Route::resource('mentors', MentorController::class);
 });
 
+// Route untuk menghapus sweet alert dari flash message
+
+Route::post('/clear-flash', function () {
+    session()->forget(['success', 'error', 'needLogin']);
+    return response()->json(['cleared' => true]);
+})->name('flash.clear');
+
+

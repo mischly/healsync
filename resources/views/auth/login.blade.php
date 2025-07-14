@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Login | Healsync</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="{{ asset('img/logo1-white.png') }}?v=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -110,5 +111,54 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top',
+                icon: 'success',
+                title: @json(session('success')),
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didDestroy: function () {
+                    // Hapus session flash setelah alert ditampilkan
+                    fetch("{{ route('flash.clear') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({})
+                    });
+                }
+            });
+        </script>
+    @endif
+
+    @if(session('error'))
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top',
+                icon: 'error',
+                title: @json(session('error')),
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didDestroy: function () {
+                    fetch("{{ route('flash.clear') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content'),
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({})
+                    });
+                }
+            });
+        </script>
+    @endif
 </body>
 </html>

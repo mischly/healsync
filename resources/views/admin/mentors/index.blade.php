@@ -63,12 +63,6 @@
         </a>
     </div>
 
-    @if(session('success'))
-        <div class="alert alert-success shadow-sm rounded">
-            {{ session('success') }}
-        </div>
-    @endif
-
     <form action="{{ route('admin.mentors.index') }}" method="GET" class="mb-3 d-flex justify-content-end">
         <input type="text" autocomplete="off" name="search" class="form-control w-25 me-2" placeholder="Cari nama mentor..." value="{{ request('search') }}">
         <button type="submit" class="btn btn-primary rounded-pill">
