@@ -64,6 +64,7 @@
                     <h5 class="fw-bold">Almira Devina, M.Psi., Psikolog</h5>
                     <p class="mb-1 text-muted">July 14, 2025 at 1:00 PM</p>
                     <span class="badge bg-success mb-3">🖥️ Available Online</span>
+                    <span class="badge bg-secondary">🏢 Available Offline - Jakarta Office</span>
 
                     <p class="mb-2">
                         Konsultasi daring di aplikasi Healsync bersama <strong>Almira Devina, M.Psi.</strong>
