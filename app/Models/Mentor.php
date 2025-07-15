@@ -29,4 +29,9 @@ class Mentor extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function jadwalPraktek()
+    {
+        return $this->hasMany(JadwalPraktek::class);
+    }
 }

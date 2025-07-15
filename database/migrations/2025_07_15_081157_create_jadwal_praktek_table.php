@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('jadwal_praktek', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('mentor_id')->constrained()->onDelete('cascade');
-            $table->tinyInteger('rating')->unsigned();
-            $table->text('komentar')->nullable();
+            $table->string('hari');
+            $table->time('jam');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('jadwal_praktek');
     }
 };

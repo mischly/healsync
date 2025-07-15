@@ -4,22 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class JadwalPraktek extends Model
 {
-    protected $fillable = [
-        'user_id',
-        'mentor_id',
-        'metode',
-        'tanggal',
-        'jam',
-        'keluhan',
-        'status',
-    ];
+    protected $table = 'jadwal_praktek';
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = [
+        'mentor_id',
+        'hari',
+        'jam',
+    ];
 
     public function mentor()
     {

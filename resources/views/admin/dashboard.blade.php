@@ -54,9 +54,9 @@
         <div class="col-md-3 mb-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
-                    <i class="bi bi-chat-square-text-fill display-4 text-danger"></i>
-                    <h5 class="mt-2">Data Review</h5>
-                    <a href="#" class="btn btn-sm btn-outline-danger mt-2">Kelola</a>
+                    <i class="bi bi-clock-fill display-4 text-danger"></i>
+                    <h5 class="mt-2">Data Jadwal</h5>
+                    <a href="{{ route('admin.jadwal.index') }}" class="btn btn-sm btn-outline-danger mt-2">Kelola</a>
                 </div>
             </div>
         </div>

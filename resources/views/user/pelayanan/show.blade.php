@@ -110,6 +110,7 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const tanggalButtons = document.querySelectorAll('.pilih-tanggal');
@@ -128,7 +129,7 @@
                 .then(res => res.json())
                 .then(slots => {
                     if (slots.length === 0) {
-                        slotContainer.innerHTML = '<p class="text-danger">Jadwal mentor penuh pada tanggal ini :)</p>';
+                        slotContainer.innerHTML = '<p class="text-muted">Tidak ada jadwal di tanggal ini :)</p>';
                         return;
                     }
 
@@ -171,9 +172,46 @@
         document.getElementById('jadwalForm').addEventListener('submit', function(e) {
             if (!inputTanggal.value || !inputJam.value) {
                 e.preventDefault();
-                alert('Pilih tanggal dan jam terlebih dahulu.');
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Peringatan',
+                    text: 'Pilih tanggal dan jam terlebih dahulu.',
+                    confirmButtonText: 'Oke'
+                });
             }
         });
     });
 </script>
+
+@if(session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Kesalahan',
+            text: @json(session('error')),
+            confirmButtonText: 'Oke',
+            didDestroy: function () {
+                fetch("{{ route('flash.clear') }}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content'),
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({})
+                });
+            }
+        });
+    </script>
+@endif
+
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Validasi Gagal',
+            text: @json($errors->first()),
+            confirmButtonText: 'Oke'
+        });
+    </script>
+@endif
 @endpush

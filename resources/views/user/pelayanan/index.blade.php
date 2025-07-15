@@ -27,7 +27,7 @@
                 <p>{{ $p['jenis'] }}</p>
                 <div class="buttons">
                     <a href="{{ route('pelayanan.show', $p->id) }}" class="btn btn-primary">Lihat profil</a>
-                    <a href="{{ route('booking.form', $p->id) }}" class="btn btn-success">Konsultasi</a>
+                    <a href="{{ route('pelayanan.show', $p->id) }}" class="btn btn-success">Konsultasi</a>
                 </div>
             </div>
         </div>

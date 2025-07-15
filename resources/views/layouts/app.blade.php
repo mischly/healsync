@@ -160,8 +160,6 @@
         @if (!View::hasSection('no-footer'))
             @include('partials.footer')
         @endif
-
-        @stack('scripts')
     </div>
 
         {{-- Sweetalert Toast ver --}}

@@ -17,6 +17,7 @@ export default defineConfig({
                 'resources/css/admin/users/index.css',
                 'resources/css/mentors/index.css',
                 'resources/css/mentors/create.css',
+                'resources/css/admin/jadwal/index.css',
             ],
             refresh: true,
         }),

@@ -4,6 +4,8 @@ use App\Http\Controllers\PelayananController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\JadwalPraktekController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +29,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', RoleMiddleware::clas
     Route::view('/', 'admin.dashboard')->name('dashboard');
     Route::resource('mentors', MentorController::class);
     Route::resource('users', UserController::class);
-    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+
+    Route::resource('jadwal', JadwalPraktekController::class)->except(['show', 'edit', 'update']);
 });
 
 // Route untuk menghapus sweet alert dari flash message
@@ -37,14 +40,16 @@ Route::post('/clear-flash', function () {
 })->name('flash.clear');
 
 
-// Route Booking
+// Route User
 Route::middleware(['auth'])->group(function () {
+    // Booking
+    Route::get('/jadwal-tersedia', [JadwalPraktekController::class, 'jadwalTersedia']);
     Route::get('/booking/form/{mentor}', [BookingController::class, 'create'])->name('booking.form');
-    Route::get('/jadwal-tersedia', [BookingController::class, 'getAvailableSlots']);
+    Route::get('/booking/selesai', [BookingController::class, 'complete'])->name('booking.complete');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+    Route::post('/booking/konfirmasi', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
+
+    // Review
+    Route::resource('reviews', ReviewController::class)->only(['create', 'store']);
 });
 
-// Config Untuk Booking
-Route::get('/coba-slot', function () {
-    return config('slots');
-});
