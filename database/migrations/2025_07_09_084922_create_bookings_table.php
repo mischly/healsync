@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->enum('media', ['online', 'offline']); // <-- Tambahkan ini
             $table->string('organization')->nullable();
-            $table->text('source')->nullable();
+            $table->string('referral_source')->nullable();
             $table->timestamps();
         });
     }

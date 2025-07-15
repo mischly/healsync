@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Booking;
 use Illuminate\Http\Request;
+use App\Models\Booking;
 
 class BookingController extends Controller
 {
@@ -15,15 +15,23 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required|string',
+            'media' => 'required|in:online,offline',
             'organization' => 'nullable|string',
-            'source' => 'nullable|string',
+            'referral_source' => 'nullable|string',
         ]);
 
-        Booking::create($request->all());
+        Booking::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'media' => $request->media,
+            'organization' => $request->organization,
+            'referral_source' => $request->referral_source,
+        ]);
 
-        return redirect()->back()->with('success', 'Booking berhasil disimpan.');
+        return redirect()->route('booking.success')->with('success', 'Booking berhasil dikirim!');
     }
 }

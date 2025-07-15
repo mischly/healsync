@@ -9,7 +9,8 @@ class Booking extends Model
 {
     use HasFactory;
 
+    // Model
     protected $fillable = [
-        'name', 'email', 'phone', 'organization', 'source'
+        'name', 'email', 'phone', 'media', 'organization', 'referral_source'
     ];
 }

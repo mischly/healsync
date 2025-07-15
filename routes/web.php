@@ -19,8 +19,12 @@ Route::view('/layanan', 'page.layanan')->name('page.layanan');
 
 Route::resource('mentors', MentorController::class);
 
-Route::get('/booking', [BookingController::class, 'create'])->name('booking.form');
+Route::get('/booking', [BookingController::class, 'create'])->name('booking.create');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
+Route::get('/booking/success', function () {
+    return view('booking.success');
+})->name('booking.success');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

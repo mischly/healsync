@@ -21,7 +21,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    @stack('styles')
+    @stack('scripts')
 </head>
 <body>  
     <div id="app">
