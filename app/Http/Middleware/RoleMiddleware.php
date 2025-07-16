@@ -14,14 +14,26 @@ class RoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next)
+        public function handle(Request $request, Closure $next, ...$roles): Response
     {
         $user = Auth::user();
 
-        if (!$user || !$user->hasRole('admin')) {
+        if (!$user) {
             abort(403, 'Maaf ini bukan ranah kamu ya.');
         }
 
-        return $next($request);
+        // Jika tidak ada role yang diberikan, izinkan akses
+        if (empty($roles)) {
+            return $next($request);
+        }
+
+        // Periksa apakah user memiliki salah satu dari role yang diperlukan
+        foreach ($roles as $role) {
+            if ($user->hasRole($role)) {
+                return $next($request);
+            }
+        }
+
+        abort(403, 'Maaf ini bukan ranah kamu ya.');
     }
 }

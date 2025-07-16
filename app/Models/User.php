@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'username',
         'email',
+        'avatar',
         'phone',
         'password',
     ];
@@ -72,5 +73,4 @@ class User extends Authenticatable
     {
         return $this->hasRole('admin');
     }
-
 }

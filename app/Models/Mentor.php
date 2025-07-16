@@ -34,4 +34,9 @@ class Mentor extends Model
     {
         return $this->hasMany(JadwalPraktek::class);
     }
+    
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

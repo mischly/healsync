@@ -90,7 +90,8 @@ class BookingController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $booking = Booking::with(['mentor', 'review'])->where('user_id', Auth::id())->findOrFail($id);
+        return view('profile.show', compact('booking'));
     }
 
     /**
@@ -142,9 +143,9 @@ class BookingController extends Controller
         ]);
     }
 
-    public function complete(Request $request)
+    public function complete($mentor_id)
     {
-        $mentor = Mentor::findOrFail($request->mentor_id);
+        $mentor = Mentor::findOrFail($mentor_id);
         return view('user.pelayanan.complete', compact('mentor'));
     }
 }
