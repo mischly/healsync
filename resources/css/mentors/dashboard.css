@@ -1,24 +1,24 @@
- body {
+body {
     background: #7F7FD5;
     background: -webkit-linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
     background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
 }
 
-.table-custom {
+.table-responsive .table-custom {
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-.table-custom thead {
+.table-responsive  .table-custom thead {
   background-color: #3454d1;
   color: white;
   font-weight: bold;
   text-align: center;
 }
 
-.table-custom tbody td {
+.table-responsive  .table-custom tbody td {
   vertical-align: middle;
   text-align: center;
 }

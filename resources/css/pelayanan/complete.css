@@ -1,0 +1,38 @@
+body {
+    background: linear-gradient(to left bottom, #91EAE4, #86A8E7, #7F7FD5);
+    min-height: 100vh;
+}
+
+.thankyou-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem;
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.thankyou-card h2 {
+    font-size: 2rem;
+    color: #2d3436;
+    margin-bottom: 1rem;
+}
+
+.thankyou-card p {
+    font-size: 1.1rem;
+    color: #636e72;
+    margin-bottom: 1.5rem;
+}
+
+.thankyou-card h5 {
+    color: #2d3436;
+    font-size: 1.125rem;
+}
+
+.thankyou-card .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+}

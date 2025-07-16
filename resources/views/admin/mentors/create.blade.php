@@ -16,7 +16,6 @@
                 @csrf
 
                 <div class="row g-4">
-                    {{-- Kolom 1: Foto --}}
                     <div class="col-md-3 text-center">
                         <div class="avatar-wrapper mx-auto" id="avatar-container">
                             <i id="avatar-preview" class="bi bi-person-circle avatar-icon"></i>
@@ -28,7 +27,6 @@
                         @enderror
                     </div>
 
-                    {{-- Kolom 2: Nama, Username, Telepon --}}
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">Nama</label>
@@ -47,7 +45,6 @@
                         </div>
                     </div>
 
-                    {{-- Kolom 3: Bidang & Biodata --}}
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">Bidang</label>
@@ -67,7 +64,6 @@
                         </div>
                     </div>
 
-                    {{-- Kolom 4: Email, Password --}}
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">Email</label>
@@ -86,7 +82,6 @@
                     </div>
                 </div>
 
-                {{-- Tombol Kembali dan Simpan --}}
                 <div class="row mt-4">
                     <div class="col-md-6" style="margin-top: 2.3rem">
                         <a href="{{ route('admin.mentors.index') }}" class="btn btn-danger">
@@ -107,30 +102,5 @@
 @endsection
 
 @push('scripts')
-<script>
-    document.getElementById('avatar').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        const container = document.getElementById('avatar-container');
-
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                const current = document.getElementById('avatar-preview');
-                if (current.tagName.toLowerCase() === 'i') {
-                    const img = document.createElement('img');
-                    img.id = 'avatar-preview';
-                    img.src = evt.target.result;
-                    img.alt = 'Avatar';
-                    img.className = 'avatar-img rounded-circle';
-
-                    container.innerHTML = '';
-                    container.appendChild(img);
-                } else {
-                    current.src = evt.target.result;
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
+    @vite(['resources/js/mentors/create.js'])
 @endpush

@@ -10,8 +10,6 @@
     <img src="{{ asset('img/testimonigoogle.png') }}" alt="Google Review" style="height: 60px;" class="mb-4">
     
     <div class="review-container">
-
-        {{-- Testimoni 1 --}}
         <div class="review-card d-flex flex-column align-items-start">
             <div class="d-flex align-items-center mb-2">
                 <img src="{{ asset('img/testimoniprofil.jpeg') }}" alt="Andini">
@@ -23,7 +21,6 @@
             <p>Alhamdulillah ada kenalan terbantu dengan layanan konselingnya. Pengalaman menyenangkan dan tempatnya nyaman.</p>
         </div>
 
-        {{-- Testimoni 2 --}}
         <div class="review-card d-flex flex-column align-items-start">
             <div class="d-flex align-items-center mb-2">
                 <img src="{{ asset('img/testimoniprofil2.jpg') }}" alt="Anonim">
@@ -35,7 +32,6 @@
             <p>Awalnya saya ragu, tapi ternyata ngobrol dengan konselor bikin lega banget. Terima kasih!</p>
         </div>
 
-        {{-- Testimoni 3 --}}
         <div class="review-card d-flex flex-column align-items-start">
             <div class="d-flex align-items-center mb-2">
                 <img src="{{ asset('img/testimoniprofil3.png') }}" alt="Fajar">
@@ -47,7 +43,6 @@
             <p>Sudah 3 kali sesi, dan tiap sesi selalu membawa perubahan positif. Sangat direkomendasikan!</p>
         </div>
 
-        {{-- Testimoni 4 --}}
         <div class="review-card d-flex flex-column align-items-start">
             <div class="d-flex align-items-center mb-2">
                 <img src="{{ asset('img/testimoniprofil4.jpeg') }}" alt="Rina">
@@ -59,7 +54,6 @@
             <p>Saya merasa lebih percaya diri setelah sesi konseling. Terima kasih telah menjadi pendengar yang baik.</p>
         </div>
 
-        {{-- Testimoni 5 --}}
         <div class="review-card d-flex flex-column align-items-start">
             <div class="d-flex align-items-center mb-2">
                 <img src="{{ asset('img/testimoniprofil2.jpg') }}" alt="Yusuf">

@@ -1,39 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
-<style>
-    body {
-        background-image: linear-gradient(to bottom, #00ebff, #00d4ff, #00bbff, #119fff, #677feb);
-    }
-
-    .booking-card {
-        max-width: 650px;
-        margin: 0 auto;
-        border-radius: 1rem;
-    }
-
-    .booking-card .form-control,
-    .booking-card select,
-    .booking-card textarea {
-        border-radius: 0.5rem;
-    }
-
-    .booking-header {
-        background-color: #f8f9fa;
-        border-bottom: 1px solid #dee2e6;
-        padding: 1.5rem;
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem;
-    }
-
-    .booking-body {
-        padding: 2rem;
-    }
-
-    textarea {
-        resize: none;
-    }
-</style>
+    @vite(['resources/css/pelayanan/form.css'])
 @endpush
 
 @section('content')

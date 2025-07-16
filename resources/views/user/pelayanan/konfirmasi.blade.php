@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
 @push('styles')
-<style>
-    body {
-        background-image: linear-gradient(to bottom, #00ebff, #00d4ff, #00bbff, #119fff, #677feb);
-    }
-</style>
+    @vite(['resources/css/pelayanan/konfirmasi.css'])
 @endpush
 
 @section('content')
+
+{{-- Carbon Format --}}
 @php
 \Carbon\Carbon::setLocale('id');
 @endphp
+
 <div class="container py-5">
     <div class="card shadow mx-auto" style="max-width: 600px;">
         <div class="card-header bg-light">

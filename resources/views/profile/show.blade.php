@@ -4,21 +4,7 @@
 @endsection
 
 @push('styles')
-<style>
-    body {
-        background: #7F7FD5;
-        background: linear-gradient(to bottom left, #91EAE4, #86A8E7, #7F7FD5);
-        min-height: 100vh;
-    }
-
-    .container-detail {
-        padding-top: 6rem;
-    }
-
-    .card-detail {
-        background-color: #ffffff;
-    }
-</style>
+    @vite(['resources/css/profile/show.css'])
 @endpush
 
 @section('content')

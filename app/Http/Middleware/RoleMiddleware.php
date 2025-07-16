@@ -22,12 +22,10 @@ class RoleMiddleware
             abort(403, 'Maaf ini bukan ranah kamu ya.');
         }
 
-        // Jika tidak ada role yang diberikan, izinkan akses
         if (empty($roles)) {
             return $next($request);
         }
 
-        // Periksa apakah user memiliki salah satu dari role yang diperlukan
         foreach ($roles as $role) {
             if ($user->hasRole($role)) {
                 return $next($request);

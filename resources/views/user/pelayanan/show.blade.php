@@ -5,10 +5,12 @@
 @endpush
 
 @section('content')
+{{-- Carbon Format --}}
 @php
     use Carbon\Carbon;
     Carbon::setLocale('id');
 @endphp
+
 <div class="container py-5">
     <h2 class="mb-5 fw-bold text-center">Profil Mentor {{ $mentor->nama }}</h2>
 

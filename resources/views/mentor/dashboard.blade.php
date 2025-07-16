@@ -4,19 +4,17 @@
 @endsection
 
 @push('styles')
-    @vite(['resources/css/mentor/dashboard.css'])
+    @vite(['resources/css/mentors/dashboard.css'])
 @endpush
 
 @section('content')
 <div class="container mt-5">
     <h1 class="mb-4">Dashboard Mentor</h1>
-
     <div class="card shadow-sm mb-4">
         <div class="card-body">
             <h5>Daftar Konsultasi</h5>
-
             <div class="table-responsive mt-3">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-custom">
                     <thead>
                         <tr>
                             <th>User</th>
@@ -59,7 +57,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </div>

@@ -11,13 +11,12 @@
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h1 class="welcome-title">Dashboard Admin</h1>
-            <p>Selamat datang, Admin!</p>
+            <h1 class="welcome-title text-white">Dashboard Admin</h1>
+            <p class="text-white">Selamat datang, Admin!</p>
         </div>
     </div>
 
     <div class="row">
-        <!-- Data Mentor -->
         <div class="col-md-3 mb-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
@@ -28,7 +27,6 @@
             </div>
         </div>
 
-        <!-- Data User -->
         <div class="col-md-3 mb-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
@@ -39,7 +37,6 @@
             </div>
         </div>
 
-        <!-- Data Booking -->
         <div class="col-md-3 mb-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
@@ -50,7 +47,6 @@
             </div>
         </div>
 
-        <!-- Data Review -->
         <div class="col-md-3 mb-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">

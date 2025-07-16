@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(to bottom left, #91EAE4, #86A8E7, #7F7FD5);
+    min-height: 100vh;
+}
+
+.review-container {
+    padding-top: 6rem;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
+.review-card h5 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 0.5rem;
+}
+
+textarea.form-control {
+    resize: none;
+    min-height: 120px;
+}
+
+.btn-primary {
+    border-radius: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}

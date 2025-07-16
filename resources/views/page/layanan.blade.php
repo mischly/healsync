@@ -4,7 +4,6 @@
     @vite(['resources/css/page-css/layanan.css'])
 @endpush
 
-
 @section('content')
 <div class="layanan-section">
     <h2 class="layanan-title">Layanan Psikologi Online</h2>

@@ -66,31 +66,7 @@ class JadwalPraktekController extends Controller
 
         return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil ditambahkan.');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(JadwalPraktek $jadwalPraktek)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(JadwalPraktek $jadwalPraktek)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, JadwalPraktek $jadwalPraktek)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      */

@@ -60,9 +60,6 @@ class User extends Authenticatable
     {
         return $this->roles()->where('name', $role)->exists();
     }
-
-
-    // Relasi ke tabel review untuk review mentor role
     
     public function reviews()
     {
