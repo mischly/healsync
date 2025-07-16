@@ -19,12 +19,17 @@ class ReviewController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create(Booking $booking)
     {
-        $bookingId = $request->query('booking_id');
-        $booking = Booking::with('mentor')->where('id', $bookingId)->where('user_id', auth()->id())->where('status', 'selesai')->firstOrFail();
+        if ($booking->user_id !== auth()->id()) {
+            abort(403);
+        }
 
-        return view('review.create', compact('booking'));
+        if ($booking->status !== 'selesai' || $booking->review) {
+            return redirect()->route('user.profile')->with('error', 'Anda tidak dapat memberikan review untuk booking ini.');
+        }
+
+        return view('user.review.create', compact('booking'));
     }
 
     /**
@@ -38,14 +43,10 @@ class ReviewController extends Controller
             'komentar' => 'nullable|string|max:1000',
         ]);
 
-        $booking = Booking::where('id', $request->booking_id)
-            ->where('user_id', auth()->id())
-            ->where('status', 'selesai')
-            ->firstOrFail();
+        $booking = Booking::with('mentor')->where('user_id', auth()->id())->findOrFail($request->booking_id);
 
-        $sudahReview = Review::where('booking_id', $booking->id)->exists();
-        if ($sudahReview) {
-            return back()->with('error', 'Review sudah pernah diberikan untuk sesi ini.');
+        if ($booking->status !== 'selesai' || $booking->review) {
+            return redirect()->route('user.profile')->with('error', 'Review tidak valid.');
         }
 
         Review::create([
@@ -56,7 +57,7 @@ class ReviewController extends Controller
             'komentar' => $request->komentar,
         ]);
 
-        return redirect()->route('page.review')->with('success', 'Terima kasih atas ulasannya.');
+        return redirect()->route('user.profile')->with('success', 'Review berhasil dikirim.');
     }
 
 

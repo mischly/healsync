@@ -22,7 +22,7 @@ Auth::routes();
 Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
-Route::view('/review', 'page.review')->name('page.review');
+Route::view('/review', 'page.testimoni')->name('page.testimoni');
 
 Route::resource('pelayanan', PelayananController::class);
 
@@ -72,5 +72,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/booking/konfirmasi', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
 
     // Review
-    Route::resource('reviews', ReviewController::class)->only(['create', 'store']);
+    Route::get('/reviews/create/{booking}', [ReviewController::class, 'create'])->name('reviews.create');
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 });

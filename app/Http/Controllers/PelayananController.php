@@ -37,7 +37,7 @@ class PelayananController extends Controller
      */
     public function show($id)
     {
-        $mentor = Mentor::findOrFail($id);
+        $mentor = Mentor::with(['reviews.user'])->findOrFail($id);
         return view('user.pelayanan.show', compact('mentor'));
     }
 

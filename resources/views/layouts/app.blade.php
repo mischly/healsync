@@ -69,7 +69,7 @@
                                 <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('page.review') }}" class="nav-link {{ request()->is('review') ? 'active' : '' }}">REVIEW</a>
+                                <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
                             </li>
                         @else
                         {{-- Navbar admin --}}
@@ -99,7 +99,7 @@
                                     <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('page.review') }}" class="nav-link {{ request()->is('review') ? 'active' : '' }}">REVIEW</a>
+                                    <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
                                 </li>
                             @endif
                         @endguest

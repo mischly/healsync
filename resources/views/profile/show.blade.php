@@ -64,8 +64,8 @@
                     </div>
 
                     @if($booking->status === 'selesai' && !$booking->review)
-                        <div class="mt-4">
-                            <a href="{{ route('reviews.create', ['booking_id' => $booking->id]) }}" class="btn btn-primary">
+                        <div class="mt-4">  
+                            <a href="{{ route('reviews.create', ['booking' => $booking->id]) }}" class="btn btn-primary">
                                 Beri Review ke Mentor
                             </a>
                         </div>

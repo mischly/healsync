@@ -41,24 +41,36 @@
             <hr>
 
             <h5 class="fw-bold mt-4 mb-3">Reviews Mentor {{ $mentor->nama }}</h5>
-            <div class="d-flex flex-wrap gap-3">
-                <div class="card p-3 shadow-sm" style="width: 280px;">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-2"
-                            style="width:40px;height:40px;">K</div>
-                        <div class="text-warning">★★★★★</div>
-                    </div>
-                    <p class="mb-0 text-sm">Sangat membantu dan membuat saya jadi lebih positif 😊 👍🏻</p>
+
+            @if ($mentor->reviews->count() > 0)
+                <div class="d-flex flex-wrap gap-3">
+                    @foreach ($mentor->reviews as $review)
+                        <div class="card p-3 shadow-sm" style="width: 280px;">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-2"
+                                    style="width:40px;height:40px;">
+                                    {{ strtoupper(substr($review->user->name ?? 'U', 0, 1)) }}
+                                </div>
+                                <div>
+                                    <strong class="d-block m-0">{{ $review->user->name }}</strong>
+                                    <div class="text-warning">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if($i <= $review->rating)
+                                                ★
+                                            @else
+                                                ☆
+                                            @endif
+                                        @endfor
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 text-sm">{{ $review->komentar ?? 'Tidak ada komentar.' }}</p>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="card p-3 shadow-sm" style="width: 280px;">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-2"
-                            style="width:40px;height:40px;">M</div>
-                        <div class="text-warning">★★★★★</div>
-                    </div>
-                    <p class="mb-0 text-sm">Sangat membantu untuk menenangkan diri dan memahami diri sendiri.</p>
-                </div>
-            </div>
+            @else
+                <p class="text-muted fst-italic">Belum ada review untuk mentor ini.</p>
+            @endif
 
             <h5 class="fw-bold mt-5 mb-3">Tentang Mentor</h5>
             <div class="card p-4 shadow-sm">
