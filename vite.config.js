@@ -24,6 +24,7 @@ export default defineConfig({
                 'resources/css/mentors/show.css',
                 'resources/css/mentors/dashboard.css',
                 'resources/css/admin/jadwal/index.css',
+                'resources/css/admin/bookings/booking.css',
                 'resources/css/profile/index.css',
                 'resources/css/profile/show.css',
                 'resources/css/review/create.css',
