@@ -23,7 +23,7 @@
     <div class="footer-section">
         <h3>Tentang Kami</h3>
         <p><a href="{{ route('page.about') }}">Tentang Healsync</a></p>
-        <p><a href="">Hubungi Kami</a></p>
+        <p><a href="{{ route('user.kontak.index') }}">Hubungi Kami</a></p>
     </div>
     
     <!-- Lainnya -->

@@ -68,19 +68,19 @@
             <img src="{{ asset('img/about5.png') }}" alt="Konseling">
             <h5>Konsultasi dengan psikolog sekarang</h5>
             <p>Ambil langkah pertama untuk memperoleh hidup yang lebih baik</p>
-            <a href="#" class="fitur-btn">MULAI KONSELING</a>
+            <a href="{{ route('pelayanan.index') }}" class="fitur-btn">MULAI KONSELING</a>
         </div>
         <div class="fitur-card">
             <img src="{{ asset('img/about6.png') }}" alt="Kerjasama">
             <h5>Jalin kerjasama B2B dengan Healsync</h5>
             <p>Untuk keperluan training, seminar, dan sesi counseling untuk perusahaan</p>
-            <a href="#" class="fitur-btn">HUBUNGI KAMI</a>
+            <a href="{{ route('user.kontak.index') }}" class="fitur-btn">HUBUNGI KAMI</a>
         </div>
         <div class="fitur-card">
             <img src="{{ asset('img/about7.png') }}" alt="Tim">
             <h5>Bergabung dengan tim</h5>
             <p>Ayo berkontribusi dalam mewujudkan mimpi masyarakat Indonesia untuk sejahtera secara psikologis</p>
-            <a href="#" class="fitur-btn">GABUNG SEKARANG</a>
+            <a href="{{ route('user.gabung.index') }}" class="fitur-btn">GABUNG SEKARANG</a>
         </div>
     </div>
 

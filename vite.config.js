@@ -27,6 +27,8 @@ export default defineConfig({
                 'resources/css/profile/index.css',
                 'resources/css/profile/show.css',
                 'resources/css/review/create.css',
+                'resources/css/kontak.css',
+                'resources/css/gabung.css',
                 
                 // JS
                 'resources/js/mentors/index.js',

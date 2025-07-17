@@ -31,7 +31,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::view('/', 'admin.dashboard')->name('dashboard');
     Route::resource('mentors', MentorController::class);
     Route::resource('users', UserController::class);
-
     Route::resource('jadwal', JadwalPraktekController::class)->except(['show', 'edit', 'update']);
 });
 
