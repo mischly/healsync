@@ -23,6 +23,8 @@ Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
 Route::view('/review', 'page.testimoni')->name('page.testimoni');
+Route::view('/hubungi-kami', 'user.kontak.index')->name('user.kontak.index');
+Route::view('/gabung', 'user.gabung.index')->name('user.gabung.index');
 
 Route::resource('pelayanan', PelayananController::class);
 
@@ -50,27 +52,13 @@ Route::post('/clear-flash', function () {
 // Route Layanan
 Route::middleware(['auth'])->group(function () {
     // Profile
-    Route::get('/profil', [Profilecontroller::class, 'index'])->name('user.profile');
+    Route::get('/profil', [ProfileController::class, 'index'])->name('user.profile');
     Route::get('/profil/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
     Route::post('/profil/update', [ProfileController::class, 'update'])->name('user.profile.update');
     Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking.show');
+});
 
-    // Password Change
-    Route::get('/profil/ubah-password', [ProfileController::class, 'editPassword'])->name('user.password.edit');
-    Route::post('/profil/ubah-password', [ProfileController::class, 'updatePassword'])->name('user.password.update');
-    
-    // Email Change
-    Route::get('/profil/ubah-email', [ProfileController::class, 'editEmail'])->name('user.email.edit');
-    Route::post('/profil/ubah-email', [ProfileController::class, 'updateEmail'])->name('user.email.update');
-
-    // Booking
-    Route::get('/jadwal-tersedia', [JadwalPraktekController::class, 'jadwalTersedia']);
-    Route::get('/booking/form/{mentor}', [BookingController::class, 'create'])->name('booking.form');
-    Route::get('/booking/selesai/{mentor_id}', [BookingController::class, 'complete'])->name('booking.complete');
-    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-    Route::post('/booking/konfirmasi', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
-
-    // Review
-    Route::get('/reviews/create/{booking}', [ReviewController::class, 'create'])->name('reviews.create');
-    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+// Config Untuk Booking
+Route::get('/coba-slot', function () {
+    return config('slots');
 });
