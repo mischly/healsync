@@ -22,7 +22,6 @@ Auth::routes();
 Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
-Route::view('/review', 'page.testimoni')->name('page.testimoni');
 
 Route::resource('pelayanan', PelayananController::class);
 
@@ -51,7 +50,7 @@ Route::post('/clear-flash', function () {
 // Route Layanan
 Route::middleware(['auth'])->group(function () {
     // Profile
-    Route::get('/profil', [Profilecontroller::class, 'index'])->name('user.profile');
+    Route::get('/profil', [ProfileController::class, 'index'])->name('user.profile');
     Route::get('/profil/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
     Route::post('/profil/update', [ProfileController::class, 'update'])->name('user.profile.update');
     Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking.show');
