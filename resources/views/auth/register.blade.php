@@ -85,7 +85,7 @@
                                 <div class="col-md-6">
                                     <div>
                                         <label for="phone" class="form-label text-dark fw-medium mb-1">No. Telepon</label>
-                                        <input type="text" class="form-control custom-input @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}" placeholder="08xxxxxxxxxx" required>
+                                        <input type="text" class="form-control custom-input @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}" placeholder="Masukan Nomor Telepon" required>
                                         @error('phone')
                                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                         @enderror

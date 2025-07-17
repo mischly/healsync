@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'username',
         'email',
+        'avatar',
         'phone',
         'password',
     ];
@@ -59,9 +60,6 @@ class User extends Authenticatable
     {
         return $this->roles()->where('name', $role)->exists();
     }
-
-
-    // Relasi ke tabel review untuk review mentor role
     
     public function reviews()
     {
@@ -72,5 +70,4 @@ class User extends Authenticatable
     {
         return $this->hasRole('admin');
     }
-
 }

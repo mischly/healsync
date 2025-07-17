@@ -4,6 +4,10 @@ use App\Http\Controllers\PelayananController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\JadwalPraktekController;
+use App\Http\Controllers\MentorDashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -18,16 +22,23 @@ Auth::routes();
 Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
-Route::view('/review', 'page.review')->name('page.review');
+Route::view('/review', 'page.testimoni')->name('page.testimoni');
 
 Route::resource('pelayanan', PelayananController::class);
 
 // Middleware admin
-Route::prefix('admin')->name('admin.')->middleware(['auth', RoleMiddleware::class])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
     Route::view('/', 'admin.dashboard')->name('dashboard');
     Route::resource('mentors', MentorController::class);
     Route::resource('users', UserController::class);
-    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+
+    Route::resource('jadwal', JadwalPraktekController::class)->except(['show', 'edit', 'update']);
+});
+
+// Middleware mentor
+Route::prefix('mentor')->name('mentor.')->middleware(['auth', 'role:mentor'])->group(function () {
+    Route::get('/dashboard', [MentorDashboardController::class, 'index'])->name('dashboard');
+    Route::patch('/booking/{booking}/selesaikan', [MentorDashboardController::class, 'selesaikan'])->name('booking.selesai');
 });
 
 // Route untuk menghapus sweet alert dari flash message
@@ -37,11 +48,13 @@ Route::post('/clear-flash', function () {
 })->name('flash.clear');
 
 
-// Route Booking
+// Route Layanan
 Route::middleware(['auth'])->group(function () {
-    Route::get('/booking/form/{mentor}', [BookingController::class, 'create'])->name('booking.form');
-    Route::get('/jadwal-tersedia', [BookingController::class, 'getAvailableSlots']);
-    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+    // Profile
+    Route::get('/profil', [Profilecontroller::class, 'index'])->name('user.profile');
+    Route::get('/profil/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
+    Route::post('/profil/update', [ProfileController::class, 'update'])->name('user.profile.update');
+    Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking.show');
 });
 
 // Config Untuk Booking

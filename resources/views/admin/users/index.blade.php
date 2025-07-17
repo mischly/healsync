@@ -8,14 +8,13 @@
 @endpush
 
 @section('content')
-<div class="container user-management-container">
+<div class="container user-management-container py-5">
     <h2 class="mb-4 fw-bold text-white">Daftar User</h2>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <!-- Search bar -->
     <div class="search-box">
         <form action="{{ route('admin.users.index') }}" method="GET">
             <input type="text" name="search" placeholder="Cari nama user..." value="{{ request('search') }}">
@@ -23,7 +22,6 @@
         </form>
     </div>
 
-    <!-- Tabel User -->
     <div class="table-responsive">
         <table class="table table-bordered table-custom">
             <thead>
@@ -56,11 +54,11 @@
                         <a href="{{ route('admin.users.show', $user) }}" class="btn btn-sm btn-view" title="Lihat Detail">
                             <i class="fas fa-eye"></i>
                         </a>
-
+                        
                         <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-edit" title="Edit User">
                             <i class="fas fa-edit"></i>
                         </a>
-
+                            
                         @if($user->id !== auth()->id())
                         <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="d-inline">
                             @csrf
@@ -81,7 +79,6 @@
         </table>
     </div>
 
-    <!-- Pagination -->
     <div class="d-flex justify-content-center mt-4">
         {{ $users->links() }}
     </div>

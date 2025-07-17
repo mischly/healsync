@@ -4,20 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\JadwalPraktek;
 use App\Models\Mentor;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -61,80 +54,66 @@ class BookingController extends Controller
             'keluhan' => 'required|string|min:10',
         ]);
 
-        $datetime = Carbon::parse("{$request->tanggal} {$request->jam}:00");
-
-        // Cek apakah jadwal sudah dibooking orang lain
         $sudahDipesan = Booking::where('mentor_id', $request->mentor_id)
-            ->where('jadwal', $datetime)
+            ->where('tanggal', $request->tanggal)
+            ->where('jam', $request->jam)
             ->exists();
 
         if ($sudahDipesan) {
-            return back()->with('error', 'Slot waktu sudah dipesan. Silakan pilih waktu lain.');
+            return back()->with('error', 'Jadwal sudah dipesan. Silakan pilih waktu lain.');
         }
 
-        // Simpan booking
         Booking::create([
             'user_id' => Auth::id(),
             'mentor_id' => $request->mentor_id,
             'metode' => $request->metode,
-            'jadwal' => $datetime,
+            'tanggal' => $request->tanggal,
+            'jam' => $request->jam,
             'keluhan' => $request->keluhan,
             'status' => 'pending',
         ]);
 
-        return redirect()->route('home')->with('success', 'Booking berhasil! Tunggu konfirmasi dari psikolog.');
+        return redirect()->route('booking.complete', ['mentor_id' => $request->mentor_id]);
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $booking = Booking::with(['mentor', 'review'])->where('user_id', Auth::id())->findOrFail($id);
+        return view('profile.show', compact('booking'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function konfirmasi(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'mentor_id' => 'required|exists:mentors,id',
+            'metode' => 'required|in:online,offline',
+            'tanggal' => 'required|date',
+            'jam' => 'required|regex:/^\d{2}:\d{2}$/',
+            'keluhan' => 'required|string|min:10',
+        ]);
+
+        $mentor = Mentor::findOrFail($request->mentor_id);
+        $datetime = Carbon::parse("{$request->tanggal} {$request->jam}:00");
+
+        $harga = $mentor->harga ?? 250000;
+
+        return view('user.pelayanan.konfirmasi', [
+            'mentor' => $mentor,
+            'jadwal' => $datetime,
+            'metode' => $request->metode,
+            'keluhan' => $request->keluhan,
+            'harga' => $harga,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function complete($mentor_id)
     {
-        //
+        $mentor = Mentor::findOrFail($mentor_id);
+        return view('user.pelayanan.complete', compact('mentor'));
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
-    public function getAvailableSlots(Request $request)
-    {
-        $mentorId = $request->mentor_id;
-        $tanggal = $request->tanggal;
-
-        $allSlots = config('slots');
-
-        $booked = Booking::where('mentor_id', $mentorId)
-            ->whereDate('jadwal', $tanggal)
-            ->pluck('jadwal')
-            ->map(function ($jadwal) {
-                return Carbon::parse($jadwal)->format('H:i');
-            })
-            ->toArray();
-
-        $tersedia = array_values(array_diff($allSlots, $booked));
-
-        return response()->json($tersedia);
-    }
-
 }

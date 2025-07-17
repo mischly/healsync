@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             UserRoleSeeder::class,
-            MentorSeeder::class,
+            // MentorSeeder::class,
         ]);
     }
 }

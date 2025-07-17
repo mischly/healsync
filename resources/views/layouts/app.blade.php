@@ -69,7 +69,7 @@
                                 <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('page.review') }}" class="nav-link {{ request()->is('review') ? 'active' : '' }}">REVIEW</a>
+                                <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
                             </li>
                         @else
                         {{-- Navbar admin --}}
@@ -80,7 +80,7 @@
                         {{-- Navbar mentor --}}
                         @if (Auth::user()->hasRole('mentor'))
                         <li class="nav-item">
-                            <a href="/" class="nav-link {{ request()->is('mentor') ? 'active' : '' }}">DASHBOARD MENTOR</a>
+                            <a href="{{ route('mentor.dashboard') }}" class="nav-link {{ request()->is('mentor/dashboard') ? 'active' : '' }}">DASHBOARD</a>
                         </li>
                         @endif
                         
@@ -99,7 +99,7 @@
                                     <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('page.review') }}" class="nav-link {{ request()->is('review') ? 'active' : '' }}">REVIEW</a>
+                                    <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
                                 </li>
                             @endif
                         @endguest
@@ -124,6 +124,8 @@
                                 <a id="navbarDropdown" class="nav-link no-underline dropdown-toggle user-avatar no-underline" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     @if(Auth::user()->avatar)
                                         <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Avatar" class="avatar-img rounded-circle" width="30" height="30">
+                                    @elseif(Auth::user()->mentor && Auth::user()->mentor->foto)
+                                        <img src="{{ asset('storage/foto_mentors/' . Auth::user()->mentor->foto) }}" alt="Avatar" class="avatar-img rounded-circle" width="30" height="30">
                                     @else
                                         <i class="bi bi-person-circle fs-2 text-secondary"></i>
                                     @endif
@@ -131,7 +133,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-end animated-dropdown" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a class="dropdown-item" href="/">
+                                        <a class="dropdown-item" href="{{ route('user.profile') }}">
                                             <i class="bi bi-person me-2"></i> Profil
                                         </a>
                                     </li>
@@ -160,8 +162,6 @@
         @if (!View::hasSection('no-footer'))
             @include('partials.footer')
         @endif
-
-        @stack('scripts')
     </div>
 
         {{-- Sweetalert Toast ver --}}
@@ -214,7 +214,15 @@
             });
         </script>
     @endif
-
+    
+    <script>
+        window.addEventListener('beforeunload', function () {
+            if (Swal.isVisible()) {
+                Swal.close();
+            }
+        });
+    </script>
+        
     @stack('scripts')
 
 </body>

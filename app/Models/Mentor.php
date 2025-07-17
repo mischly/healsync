@@ -13,8 +13,6 @@ class Mentor extends Model
 
     protected $fillable = ['user_id', 'nama', 'bidang', 'biodata', 'foto'];
 
-    // Relasi untuk review mentor
-
     public function reviews()
     {
         return $this->hasMany(Review::class);
@@ -28,5 +26,15 @@ class Mentor extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    
+    public function jadwalPraktek()
+    {
+        return $this->hasMany(JadwalPraktek::class);
+    }
+    
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
     }
 }

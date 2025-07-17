@@ -12,14 +12,10 @@ use Illuminate\Support\Facades\Storage;
 
 class MentorController extends Controller
 {
-    // Middleware hanya admin yang bisa masuk
-
     public function __construct()
     {
         $this->middleware(RoleMiddleware::class);
     }
-
-    // Method Resource Controller
 
     public function index(Request $request)
     {
@@ -65,7 +61,6 @@ class MentorController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        // Assign role mentor
         $role = Role::where('name', 'mentor')->first();
 
         if ($role) {

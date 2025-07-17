@@ -5,10 +5,12 @@
 @endpush
 
 @section('content')
+{{-- Carbon Format --}}
 @php
     use Carbon\Carbon;
     Carbon::setLocale('id');
 @endphp
+
 <div class="container py-5">
     <h2 class="mb-5 fw-bold text-center">Profil Mentor {{ $mentor->nama }}</h2>
 
@@ -41,24 +43,36 @@
             <hr>
 
             <h5 class="fw-bold mt-4 mb-3">Reviews Mentor {{ $mentor->nama }}</h5>
-            <div class="d-flex flex-wrap gap-3">
-                <div class="card p-3 shadow-sm" style="width: 280px;">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-2"
-                            style="width:40px;height:40px;">K</div>
-                        <div class="text-warning">★★★★★</div>
-                    </div>
-                    <p class="mb-0 text-sm">Sangat membantu dan membuat saya jadi lebih positif 😊 👍🏻</p>
+
+            @if ($mentor->reviews->count() > 0)
+                <div class="d-flex flex-wrap gap-3">
+                    @foreach ($mentor->reviews as $review)
+                        <div class="card p-3 shadow-sm" style="width: 280px;">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-2"
+                                    style="width:40px;height:40px;">
+                                    {{ strtoupper(substr($review->user->name ?? 'U', 0, 1)) }}
+                                </div>
+                                <div>
+                                    <strong class="d-block m-0">{{ $review->user->name }}</strong>
+                                    <div class="text-warning">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if($i <= $review->rating)
+                                                ★
+                                            @else
+                                                ☆
+                                            @endif
+                                        @endfor
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 text-sm">{{ $review->komentar ?? 'Tidak ada komentar.' }}</p>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="card p-3 shadow-sm" style="width: 280px;">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-2"
-                            style="width:40px;height:40px;">M</div>
-                        <div class="text-warning">★★★★★</div>
-                    </div>
-                    <p class="mb-0 text-sm">Sangat membantu untuk menenangkan diri dan memahami diri sendiri.</p>
-                </div>
-            </div>
+            @else
+                <p class="text-muted fst-italic">Belum ada review untuk mentor ini.</p>
+            @endif
 
             <h5 class="fw-bold mt-5 mb-3">Tentang Mentor</h5>
             <div class="card p-4 shadow-sm">
@@ -110,6 +124,7 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const tanggalButtons = document.querySelectorAll('.pilih-tanggal');
@@ -128,7 +143,7 @@
                 .then(res => res.json())
                 .then(slots => {
                     if (slots.length === 0) {
-                        slotContainer.innerHTML = '<p class="text-danger">Jadwal mentor penuh pada tanggal ini :)</p>';
+                        slotContainer.innerHTML = '<p class="text-muted">Tidak ada jadwal di tanggal ini :)</p>';
                         return;
                     }
 
@@ -171,9 +186,46 @@
         document.getElementById('jadwalForm').addEventListener('submit', function(e) {
             if (!inputTanggal.value || !inputJam.value) {
                 e.preventDefault();
-                alert('Pilih tanggal dan jam terlebih dahulu.');
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Peringatan',
+                    text: 'Pilih tanggal dan jam terlebih dahulu.',
+                    confirmButtonText: 'Oke'
+                });
             }
         });
     });
 </script>
+
+@if(session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Kesalahan',
+            text: @json(session('error')),
+            confirmButtonText: 'Oke',
+            didDestroy: function () {
+                fetch("{{ route('flash.clear') }}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content'),
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({})
+                });
+            }
+        });
+    </script>
+@endif
+
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Validasi Gagal',
+            text: @json($errors->first()),
+            confirmButtonText: 'Oke'
+        });
+    </script>
+@endif
 @endpush

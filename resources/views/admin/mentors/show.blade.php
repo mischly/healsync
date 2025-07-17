@@ -4,15 +4,7 @@
 @endsection
 
 @push('styles')
-    <style>
-        body {
-            background: #7F7FD5;
-            background: -webkit-linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
-            background: linear-gradient(to right, #86A8E7, #7F7FD5);
-            min-height: 100vh;
-            color: #fff
-        }
-    </style>
+    @vite(['resources/css/mentors/show.css'])
 @endpush
 
 @section('content')
@@ -20,7 +12,6 @@
     <h2 class="mb-4">Profil Mentor</h2>
 
     <div class="row">
-        <!-- Foto dan Info -->
         <div class="col-md-3 text-center mb-4">
             @if ($mentor->foto)
                 <img src="{{ asset('storage/' . $mentor->foto) }}" alt="Foto Mentor"
@@ -41,7 +32,6 @@
 
     <hr class="my-4">
 
-    <!-- Review Section -->
     <h5 class="mb-3 fw-bold">Reviews untuk {{ $mentor->nama }}</h5>
     <div class="row">
         @forelse ($mentor->reviews as $review)
@@ -74,43 +64,27 @@
         @empty
             <p class="text-white">Belum ada review.</p>
         @endforelse
-    </div>
-
-    <a href="{{ route('admin.mentors.index') }}" class="btn btn-danger mt-4">← Kembali</a>
-</div>
-
-<!-- Modal Review -->
-<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-3">
-      <div class="modal-body">
-        <div class="d-flex align-items-center mb-3">
-          <div id="modal-avatar" class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-3"
-              style="width: 40px; height: 40px; font-weight: bold;">K</div>
-          <div class="text-warning fs-5">★★★★★</div>
         </div>
-        <p id="modal-review-text" class="mb-0 text-secondary"></p>
-      </div>
+
+        <a href="{{ route('admin.mentors.index') }}" class="btn btn-danger mt-4">← Kembali</a>
     </div>
-  </div>
-</div>
+
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+                <div class="modal-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div id="modal-avatar" class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center me-3"
+                            style="width: 40px; height: 40px; font-weight: bold;">K</div>
+                        <div class="text-warning fs-5">★★★★★</div>
+                    </div>
+                    <p id="modal-review-text" class="mb-0 text-secondary"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const avatar = document.getElementById('modal-avatar');
-        const text = document.getElementById('modal-review-text');
-
-        document.querySelectorAll('.see-more-review').forEach(button => {
-            button.addEventListener('click', function () {
-                const inisial = this.getAttribute('data-inisial');
-                const review = this.getAttribute('data-review');
-
-                avatar.textContent = inisial;
-                text.textContent = review;
-            });
-        });
-    });
-</script>
+    @vite(['resources/js/mentors/show.js'])
 @endpush

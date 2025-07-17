@@ -88,7 +88,7 @@
                             <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
                     </div>
-                    <div class="col-md-6 text-end">
+                    <div class="col-md-6 text-end pt-5">
                         <button type="submit" class="btn btn-primary">
                             <i class="bi bi-save me-1"></i> Simpan Perubahan
                         </button>
@@ -101,30 +101,5 @@
 @endsection
 
 @push('scripts')
-<script>
-    document.getElementById('avatar').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        const container = document.getElementById('avatar-container');
-
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                const current = document.getElementById('avatar-preview');
-                if (current.tagName.toLowerCase() === 'i') {
-                    const img = document.createElement('img');
-                    img.id = 'avatar-preview';
-                    img.src = evt.target.result;
-                    img.alt = 'Avatar';
-                    img.className = 'avatar-img rounded-circle';
-
-                    container.innerHTML = '';
-                    container.appendChild(img);
-                } else {
-                    current.src = evt.target.result;
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
+    @vite(['resources/js/mentors/create.js'])
 @endpush

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('jam');
             $table->text('keluhan')->nullable();
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'selesai'])->default('pending');
             $table->timestamps();
         });
     }

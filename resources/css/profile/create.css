@@ -1,0 +1,82 @@
+body {
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    min-height: 100vh;
+}
+
+.profile-edit-wrapper {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.profile-card {
+    border-radius: 16px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-wrapper-card {
+    width: 142px;
+    height: 142px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.avatar-img-card {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-icon {
+    font-size: 80px;
+    color: #ccc;
+}
+
+.card-body h3 {
+    font-weight: 600;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.btn-outline-primary i,
+.btn-success i,
+.btn-secondary i {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.btn-success {
+    margin-top: 36px;
+}
+
+textarea {
+    resize: none;
+}
+
+@media (max-width: 992px) {
+    .row.g-4 > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .d-flex.justify-content-end.mt-5 {
+        justify-content: center !important;
+    }
+
+    .avatar-wrapper {
+        margin: 0 auto 10px;
+    }
+}
