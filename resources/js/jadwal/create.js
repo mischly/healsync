@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
     let index = 1;
 
+    const hariOptions = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu']
+        .map(hari => `<option value="${hari}">${hari.charAt(0).toUpperCase() + hari.slice(1)}</option>`)
+        .join('');
+
+    const jamOptions = Array.from({ length: 15 }, (_, i) => {
+        const hour = i + 8; // mulai dari 08:00
+        const jam = hour.toString().padStart(2, '0') + ':00';
+        return `<option value="${jam}">${jam}</option>`;
+    }).join('');
+
     document.getElementById('add-jadwal').addEventListener('click', function () {
         const container = document.getElementById('jadwal-container');
         const html = `
@@ -9,15 +19,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-md-5">
                     <label class="form-label">Hari</label>
                     <select name="jadwals[${index}][hari]" class="form-control" required>
-                        <option value="">Pilih Hari</option>
-                        @foreach(['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'] as $hari)
-                            <option value="{{ $hari }}">{{ ucfirst($hari) }}</option>
-                        @endforeach
+                        <option value="" hidden>Pilih Hari</option>
+                        ${hariOptions}
                     </select>
                 </div>
                 <div class="col-md-5">
                     <label class="form-label">Jam</label>
-                    <input type="text" name="jadwals[${index}][jam]" class="form-control" placeholder="Contoh: 09:00 - 11:00" required>
+                    <select name="jadwals[${index}][jam]" class="form-control" required>
+                        <option value="" hidden>Pilih Jam</option>
+                        ${jamOptions}
+                    </select>
                 </div>
                 <div class="col-md-2 d-flex align-items-end">
                     <button type="button" class="btn btn-danger remove-jadwal w-100">Hapus</button>

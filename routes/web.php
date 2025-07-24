@@ -39,6 +39,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 Route::prefix('mentor')->name('mentor.')->middleware(['auth', 'role:mentor'])->group(function () {
     Route::get('/dashboard', [MentorDashboardController::class, 'index'])->name('dashboard');
     Route::patch('/booking/{booking}/selesaikan', [MentorDashboardController::class, 'selesaikan'])->name('booking.selesai');
+
+    // Tambahan untuk jadwal
+    Route::get('/jadwal', [JadwalPraktekController::class, 'mentorIndex'])->name('jadwal.index');
+    Route::post('/jadwal', [JadwalPraktekController::class, 'mentorStore'])->name('jadwal.store');
+    Route::delete('/jadwal/{id}', [JadwalPraktekController::class, 'destroy'])->name('jadwal.destroy');
 });
 
 // Route untuk menghapus sweet alert dari flash message
