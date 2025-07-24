@@ -4,25 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\JadwalPraktek;
 use App\Models\Mentor;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-  
-    public function create(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create($mentorId, Request $request)
     {
-        $mentor = null;
+        $mentor = Mentor::findOrFail($mentorId);
         $jadwal = null;
-
-        if ($request->has('mentor_id')) {
-            $mentor = Mentor::find($request->mentor_id);
-        }
 
         if ($request->filled(['tanggal', 'jam'])) {
             try {
-                $jadwal = Carbon::parse("{$request->tanggal} {$request->jam}:00");
+                $jadwal = \Carbon\Carbon::parse("{$request->tanggal} {$request->jam}:00");
             } catch (\Exception $e) {
                 $jadwal = null;
             }
@@ -42,6 +41,9 @@ class BookingController extends Controller
         return view('user.pelayanan.form', compact('mentor', 'jadwal', 'slots', 'tanggalList'));
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -74,17 +76,19 @@ class BookingController extends Controller
         return redirect()->route('booking.complete', ['mentor_id' => $request->mentor_id]);
     }
 
+
+    /**
+     * Display the specified resource.
+     */
     public function show(string $id)
     {
-        $booking = Booking::with(['mentor', 'review'])
-            ->where('user_id', Auth::id())
-            ->findOrFail($id);
-
+        $booking = Booking::with(['mentor', 'review'])->where('user_id', Auth::id())->findOrFail($id);
         return view('profile.show', compact('booking'));
     }
 
     public function konfirmasi(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'mentor_id' => 'required|exists:mentors,id',
             'metode' => 'required|in:online,offline',

@@ -68,6 +68,9 @@
                             <li class="nav-item">
                                 <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
+                            </li>
                         @else
                         {{-- Navbar admin --}}
                         @if (Auth::user()->hasRole('admin'))
@@ -76,8 +79,11 @@
                         
                         {{-- Navbar mentor --}}
                         @if (Auth::user()->hasRole('mentor'))
-                        <li class="nav-item">
+                        <li class="nav-item ms-5">
                             <a href="{{ route('mentor.dashboard') }}" class="nav-link {{ request()->is('mentor/dashboard') ? 'active' : '' }}">DASHBOARD</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('mentor.jadwal.index') }}" class="nav-link {{ request()->is('mentor/jadwal') ? 'active' : '' }}">JADWAL</a>
                         </li>
                         @endif
                         
@@ -94,6 +100,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
                                 </li>
                             @endif
                         @endguest

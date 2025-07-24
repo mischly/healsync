@@ -29,7 +29,7 @@
                     <div class="col-md-5">
                         <label class="form-label">Hari</label>
                         <select name="jadwals[0][hari]" class="form-control" required>
-                            <option value="">Pilih Hari</option>
+                            <option value="" hidden>Pilih Hari</option>
                             @foreach(['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'] as $hari)
                                 <option value="{{ $hari }}">{{ ucfirst($hari) }}</option>
                             @endforeach
@@ -37,7 +37,23 @@
                     </div>
                     <div class="col-md-5">
                         <label class="form-label">Jam</label>
-                        <input type="text" name="jadwals[0][jam]" class="form-control" placeholder="Contoh: 09:00 - 11:00" required>
+                        <select name="jadwals[0][jam]" class="form-control" required>
+                            <option value="" hidden>Pilih Jam</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                        </select>
                     </div>
                     <div class="col-md-2 d-flex align-items-end">
                         <button type="button" class="btn btn-danger remove-jadwal w-100">Hapus</button>

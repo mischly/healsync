@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Mentor;
 
 class Booking extends Model
 {
@@ -26,6 +24,11 @@ class Booking extends Model
     public function mentor()
     {
         return $this->belongsTo(Mentor::class);
+    }
+    
+    public function review()
+    {
+        return $this->hasOne(\App\Models\Review::class);
     }
 
 }

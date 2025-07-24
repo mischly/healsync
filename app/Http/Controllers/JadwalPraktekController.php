@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\JadwalPraktek;
 use App\Models\Mentor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JadwalPraktekController extends Controller
 {
@@ -102,5 +103,33 @@ class JadwalPraktekController extends Controller
         }, $tersedia);
 
         return response()->json($formatted);
+    }
+
+    public function mentorIndex()
+    {
+        $mentor = Mentor::where('user_id', Auth::id())->firstOrFail();
+        $jadwals = JadwalPraktek::where('mentor_id', $mentor->id)->get();
+
+        return view('mentor.jadwal.index', compact('jadwals'));
+    }
+
+    public function mentorStore(Request $request)
+    {
+        $mentor = Mentor::where('user_id', Auth::id())->firstOrFail();
+
+        $validated = $request->validate([
+            'jadwals.*.hari' => 'required|string|in:senin,selasa,rabu,kamis,jumat,sabtu,minggu',
+            'jadwals.*.jam' => 'required|string',
+        ]);
+
+        foreach ($request->jadwals as $data) {
+            JadwalPraktek::create([
+                'mentor_id' => $mentor->id,
+                'hari' => $data['hari'],
+                'jam' => $data['jam'],
+            ]);
+        }
+
+        return redirect()->route('mentor.jadwal.index')->with('success', 'Jadwal berhasil ditambahkan.');
     }
 }

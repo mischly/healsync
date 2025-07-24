@@ -11,8 +11,17 @@
 <div class="container user-management-container py-5">
     <h2 class="mb-4 fw-bold text-white">Daftar User</h2>
 
+    <div class="d-flex justify-content-end mb-3">
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">
+            <i class="bi bi-arrow-left me-1"></i> Kembali
+        </a>
+    </div>
+
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
     <div class="search-box">

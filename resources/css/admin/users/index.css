@@ -102,3 +102,18 @@ body {
 .badge.bg-primary {
   background-color: #2196f3 !important;
 }
+
+.btn-back {
+    background-color: #dcdcdc; 
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-back:hover {
+    background-color: #f1f1f1; 
+    color: #000;
+}
+
