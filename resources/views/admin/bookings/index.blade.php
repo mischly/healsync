@@ -11,7 +11,12 @@
 
 @section('content')
 <div class="booking-container">
-    <h2 class="booking-title">Daftar Booking</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0 text-white">Data Booking</h3>
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">
+                 <i class="bi bi-arrow-left me-1"></i> Kembali
+        </a>
+    </div>
 
     <form method="GET" action="{{ route('admin.bookings.index') }}" class="booking-search-form">
         <input type="text" name="search" class="booking-search-input" placeholder="Cari nama user atau mentor..." value="{{ request('search') }}">

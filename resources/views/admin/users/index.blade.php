@@ -8,10 +8,9 @@
 @endpush
 
 @section('content')
-<div class="container user-management-container py-5">
-    <h2 class="mb-4 fw-bold text-white">Daftar User</h2>
-
-    <div class="d-flex justify-content-end mb-3">
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0 text-white">Daftar User</h3>
         <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">
             <i class="bi bi-arrow-left me-1"></i> Kembali
         </a>
