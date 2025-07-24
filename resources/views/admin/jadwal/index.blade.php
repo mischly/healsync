@@ -11,6 +11,12 @@
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0 text-white">Daftar Jadwal Praktek</h3>
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">
+                 <i class="bi bi-arrow-left me-1"></i> Kembali
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
         <a href="{{ route('admin.jadwal.create') }}" class="btn btn-primary shadow-sm rounded-pill px-4">
             <i class="fas fa-plus me-2"></i>Tambah Jadwal
         </a>
