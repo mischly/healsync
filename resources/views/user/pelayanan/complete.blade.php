@@ -10,7 +10,6 @@
 
         <div class="mb-3">
             <h5 class="mb-1">Jangan lupa tinggalkan review anda ke {{ $mentor->nama }} ya :)</h5>
-            <a href="{{ route('reviews.create', $mentor->id) }}" class="btn btn-outline-primary mt-4">Beri Review</a>
         </div>
 
         <a href="{{ route('page.index') }}" class="btn btn-primary mt-2">Kembali ke Beranda</a>
