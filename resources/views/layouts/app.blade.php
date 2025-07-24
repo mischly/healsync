@@ -52,7 +52,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 100px;">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 150px;">
                     <!-- Navigasi Tengah -->
                     <ul class="navbar-nav mx-auto">
                         @guest
