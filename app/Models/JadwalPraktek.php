@@ -18,4 +18,9 @@ class JadwalPraktek extends Model
     {
         return $this->belongsTo(Mentor::class);
     }
+    
+    public function booking()
+    {
+        return $this->hasMany(Booking::class,);
+    }
 }

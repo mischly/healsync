@@ -74,8 +74,20 @@ class JadwalPraktekController extends Controller
     public function destroy($id)
     {
         $jadwal = JadwalPraktek::findOrFail($id);
-        $jadwal->delete();
 
+        $user = Auth::user();
+
+        if ($user->hasRole('mentor')) {
+            $mentor = Mentor::where('user_id', $user->id)->first();
+            if ($jadwal->mentor_id !== $mentor->id) {
+                abort(403);
+            }
+
+            $jadwal->delete();
+            return redirect()->route('mentor.jadwal.index')->with('success', 'Jadwal berhasil dihapus.');
+        }
+
+        $jadwal->delete();
         return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil dihapus.');
     }
 
@@ -132,4 +144,6 @@ class JadwalPraktekController extends Controller
 
         return redirect()->route('mentor.jadwal.index')->with('success', 'Jadwal berhasil ditambahkan.');
     }
+
+    
 }

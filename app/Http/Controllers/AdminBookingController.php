@@ -11,7 +11,7 @@ class AdminBookingController extends Controller
     {
         $search = $request->search;
 
-        $bookings = Booking::with(['user', 'mentor'])
+        $bookings = Booking::with(['user', 'mentor', 'jadwalPraktek'])
             ->when($search, function ($query) use ($search) {
                 $query->whereRelation('user', 'name', 'like', "%{$search}%")
                       ->orWhereRelation('mentor', 'name', 'like', "%{$search}%");
@@ -24,7 +24,7 @@ class AdminBookingController extends Controller
 
     public function show($id)
     {
-        $booking = Booking::with(['user', 'mentor'])->findOrFail($id);
+        $booking = Booking::with(['user', 'mentor', 'jadwalPraktek'])->findOrFail($id);
         return view('admin.bookings.show', compact('booking'));
     }
 

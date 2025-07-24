@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-<div class="container mt-5">
+<div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0 text-white">Daftar Mentor</h3>
         <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">

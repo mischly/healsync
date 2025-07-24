@@ -103,3 +103,6 @@
   background-color: #2196f3 !important;
 }
 
+.table-custom td:last-child {
+    white-space: nowrap;
+}

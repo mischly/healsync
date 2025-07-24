@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="mb-4">Dashboard Mentor</h1>
+    <h1 class="mb-4 text-white">Dashboard Mentor</h1>
     <div class="card shadow-sm mb-4">
         <div class="card-body">
             <h5>Daftar Konsultasi</h5>

@@ -24,11 +24,9 @@
         <table class="booking-table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>User</th>
                     <th>Mentor</th>
                     <th>Metode</th>
-                    <th>Jadwal</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
@@ -36,11 +34,9 @@
             <tbody>
                 @forelse ($bookings as $booking)
                     <tr>
-                        <td>{{ $booking->id }}</td>
                         <td>{{ $booking->user->name }}</td>
-                        <td>{{ $booking->mentor->name }}</td>
+                        <td>{{ $booking->mentor->nama }}</td>
                         <td>{{ ucfirst($booking->metode) }}</td>
-                        <td>{{ \Carbon\Carbon::parse($booking->jadwal)->translatedFormat('d F Y - H:i') }}</td>
                         <td>
                             <span class="badge bg-{{ $booking->status == 'pending' ? 'warning' : ($booking->status == 'approved' ? 'success' : 'secondary') }}">
                                 {{ ucfirst($booking->status) }}

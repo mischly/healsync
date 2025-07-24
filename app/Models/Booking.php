@@ -28,7 +28,11 @@ class Booking extends Model
     
     public function review()
     {
-        return $this->hasOne(\App\Models\Review::class);
+        return $this->hasOne(Review::class);
     }
 
+    public function jadwalPraktek()
+    {
+        return $this->belongsTo(JadwalPraktek::class);
+    }
 }
