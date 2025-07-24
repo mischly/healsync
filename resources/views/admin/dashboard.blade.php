@@ -42,7 +42,7 @@
                 <div class="card-body text-center">
                     <i class="bi bi-calendar-check-fill display-4 text-warning"></i>
                     <h5 class="mt-2">Data Booking</h5>
-                    <a href="#" class="btn btn-sm btn-outline-warning mt-2">Kelola</a>
+                    <a href="{{ route('admin.bookings.index') }}" class="btn btn-sm btn-outline-warning mt-2">Kelola</a>
                 </div>
             </div>
         </div>
