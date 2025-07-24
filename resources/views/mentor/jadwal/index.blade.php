@@ -13,7 +13,7 @@
         color: #fff;
     }
 </style>
-<div class="container mt-5">
+<div class="container my-5">
     <h3 class="mb-4">Kelola Jadwal Praktek</h3>
 
     <form action="{{ route('mentor.jadwal.store') }}" method="POST">
