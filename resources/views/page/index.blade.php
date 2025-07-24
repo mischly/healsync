@@ -68,7 +68,7 @@
                 <h3 class="text-primary fw-bold fs-1 mb-2">01</h3>
                 <h5 class="fw-bold">Isi Formulir Pendaftaran</h5>
                 <p class="">Kamu dapat mengisi data diri dan preferensi layanan konseling yang kamu butuhkan. Kami akan menghubungimu setelah proses singkat.</p>
-                <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">Daftar di sini</a>
+                <a href="{{ route('pelayanan.index') }}" class="btn btn-outline-primary rounded-pill px-4 py-2">Daftar di sini</a>
             </div>
             <div class="col-md-5 text-center">
                 <div class="img-placeholder">
@@ -82,7 +82,7 @@
                 <h3 class="text-primary fw-bold fs-1 mb-2">02</h3>
                 <h5 class="fw-bold">Lakukan Pembayaran</h5>
                 <p class="">Untuk melanjutkan pendaftaran, cukup ikuti instruksi pembayaran sesuai layanan yang kamu pilih.</p>
-                <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">Konfirmasi di sini</a>
+                <a href="{{ route('pelayanan.index') }}" class="btn btn-outline-primary rounded-pill px-4 py-2">Konfirmasi di sini</a>
             </div>
             <div class="col-md-5 text-center">
                 <div class="img-placeholder">
@@ -96,7 +96,7 @@
                 <h3 class="text-primary fw-bold fs-1 mb-2">03</h3>
                 <h5 class="fw-bold">Sesi Pertemuan</h5>
                 <p class="">Tim kami akan mengatur jadwal pertemuan dan menghubungimu melalui media yang tersedia. Silakan siapkan diri, sesi akan dilaksanakan sesuai jadwal.</p>
-                <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">Hubungi kami</a>
+                <a href="{{ route('user.kontak.index') }}" class="btn btn-outline-primary rounded-pill px-4 py-2">Hubungi kami</a>
             </div>
             <div class="col-md-5 text-center">
                 <div class="img-placeholder">

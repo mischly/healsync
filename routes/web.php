@@ -20,6 +20,9 @@ Auth::routes();
 Route::view('/tentang-kami', 'page.about')->name('page.about');
 Route::view('/artikel', 'page.artikel')->name('page.artikel');
 Route::view('/layanan', 'page.layanan')->name('page.layanan');
+Route::view('/review', 'page.testimoni')->name('page.testimoni');
+Route::view('/hubungi-kami', 'user.kontak.index')->name('user.kontak.index');
+Route::view('/gabung', 'user.gabung.index')->name('user.gabung.index');
 
 Route::resource('pelayanan', PelayananController::class);
 
@@ -38,8 +41,7 @@ Route::prefix('mentor')->name('mentor.')->middleware(['auth', 'role:mentor'])->g
 });
 
 
-Route::middleware(['auth'])->group(function () {
-  
+Route::middleware(['auth'])->group(function () {  
     Route::get('/profil', [ProfileController::class, 'index'])->name('user.profile');
     Route::get('/profil/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
     Route::post('/profil/update', [ProfileController::class, 'update'])->name('user.profile.update');
@@ -59,3 +61,4 @@ Route::post('/clear-flash', function () {
     session()->forget(['success', 'error', 'needLogin']);
     return response()->json(['cleared' => true]);
 })->name('flash.clear');
+
