@@ -52,7 +52,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 150px;">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 100px;">
                     <!-- Navigasi Tengah -->
                     <ul class="navbar-nav mx-auto">
                         @guest
@@ -67,6 +67,9 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
                             </li>
                         @else
                         {{-- Navbar admin --}}
@@ -94,6 +97,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('page.about') }}" class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}">TENTANG KAMI</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('page.testimoni') }}" class="nav-link {{ request()->is('testimoni') ? 'active' : '' }}">TESTIMONI</a>
                                 </li>
                             @endif
                         @endguest
