@@ -49,6 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/booking/complete/{mentor_id}', [BookingController::class, 'complete'])->name('booking.complete');
     Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking.show');
+    Route::get('/booking/form/{mentor}', [BookingController::class, 'form'])->name('booking.form');
+
 });
 
 Route::get('/coba-slot', function () {
