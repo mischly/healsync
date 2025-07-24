@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminBookingController;
 use App\Http\Controllers\PelayananController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MentorController;
@@ -31,6 +32,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::view('/', 'admin.dashboard')->name('dashboard');
     Route::resource('mentors', MentorController::class);
     Route::resource('users', UserController::class);
+    Route::resource('bookings', AdminBookingController::class);
 
     Route::resource('jadwal', JadwalPraktekController::class)->except(['show', 'edit', 'update']);
 });
@@ -46,30 +48,7 @@ Route::prefix('mentor')->name('mentor.')->middleware(['auth', 'role:mentor'])->g
     Route::delete('/jadwal/{id}', [JadwalPraktekController::class, 'destroy'])->name('jadwal.destroy');
 });
 
-<<<<<<< HEAD
-
-Route::middleware(['auth'])->group(function () {
-  
-    Route::get('/profil', [ProfileController::class, 'index'])->name('user.profile');
-    Route::get('/profil/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
-    Route::post('/profil/update', [ProfileController::class, 'update'])->name('user.profile.update');
-
-    Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
-    Route::post('/booking/konfirmasi', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
-    Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
-    Route::get('/booking/complete/{mentor_id}', [BookingController::class, 'complete'])->name('booking.complete');
-    Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking.show');
-    Route::get('/booking/form/{mentor}', [BookingController::class, 'form'])->name('booking.form');
-
-});
-
-Route::get('/coba-slot', function () {
-    return config('slots');
-});
-
-=======
 // Route untuk menghapus sweet alert dari flash message
->>>>>>> f568b053234488fc5478ec08eabafbc4300018e1
 Route::post('/clear-flash', function () {
     session()->forget(['success', 'error', 'needLogin']);
     return response()->json(['cleared' => true]);
